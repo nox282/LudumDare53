@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class ScreenComponent : MonoBehaviour
 {
@@ -13,6 +14,8 @@ public class ScreenComponent : MonoBehaviour
     public Transform StartTransform;
 
     public bool IsFirstScreen = false;
+
+	public UnityEvent OnGoal;
 
     private List<Vector3> originalPositions = new List<Vector3>();
 
@@ -76,7 +79,9 @@ public class ScreenComponent : MonoBehaviour
         {
             NextSceneComponent.Activate();
         }
-    }
+
+		OnGoal.Invoke();
+	}
 
     private void OnGoalExit(Collider other)
     {
