@@ -8,7 +8,7 @@ public class BoxDisguise : MonoBehaviour
 	private MovementComponent moveComponent;
 	private Animator animator;
 
-	private bool isMoving;
+	private bool isMoving = true;
 
 	private void Start()
 	{
