@@ -87,6 +87,7 @@ MonoBehaviour:
   Rigidbody: {fileID: 3662067273133764471}
   Animator: {fileID: 4188303800831579414}
   MoveSpeed: 5
+  Y: 0.5
 --- !u!114 &2515199164877679170
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -118,7 +119,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 32
+  m_Constraints: 36
   m_CollisionDetection: 1
 --- !u!65 &4476823164308643656
 BoxCollider:

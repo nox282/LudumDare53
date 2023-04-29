@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class ScreenComponent : MonoBehaviour
 {
@@ -11,8 +12,11 @@ public class ScreenComponent : MonoBehaviour
     public ScreenComponent NextSceneComponent;
     public List<GuardCharacter> GuardCharacters;
     public Transform StartTransform;
+    public Vector2 aspectRatio = new Vector2(16, 10);
 
     public bool IsFirstScreen = false;
+
+    public UnityEvent OnGoal;
 
     private List<Vector3> originalPositions = new List<Vector3>();
 
@@ -34,39 +38,49 @@ public class ScreenComponent : MonoBehaviour
 
     private void OnEnable()
     {
-        Goal.OnTriggerEnterEvent += OnGoalEnter;
-        Goal.OnTriggerExitEvent += OnGoalExit;
+        Goal.OnTriggerStayEvent += OnGoalStay;
     }
 
     private void OnDisable()
     {
-        Goal.OnTriggerEnterEvent -= OnGoalEnter;
-        Goal.OnTriggerExitEvent -= OnGoalExit;
+        Goal.OnTriggerStayEvent -= OnGoalStay;
     }
 
     public void Respawn()
     {
+        PlayerCharacter.Get.OnRespawn();
+        foreach (var guardCharacter in GuardCharacters)
+        {
+            guardCharacter.PerceptionComponent.OnRespawn();
+        }
         Activate();
     }
 
     public void Activate()
     {
-        for (int i = 0; i < Math.Min(GuardCharacters.Count, originalPositions.Count); i++)
-        {
-            var guardCharacter = GuardCharacters[i];
-            var originalPosition = originalPositions[i];
-            guardCharacter.transform.position = originalPosition;
-
-            guardCharacter.BehaviorComponent.isPaused = false;
-        }
-
-        CameraSnapComponent.Activate();
-
         PlayerCharacter.Get.transform.position = StartTransform.position;
+        CameraSnapComponent.Activate(() =>
+        {
+            for (int i = 0; i < Math.Min(GuardCharacters.Count, originalPositions.Count); i++)
+            {
+                var guardCharacter = GuardCharacters[i];
+                var originalPosition = originalPositions[i];
+                guardCharacter.transform.position = originalPosition;
+
+                guardCharacter.BehaviorComponent.isPaused = false;
+            }
+
+
+        });
     }
 
-    private void OnGoalEnter(Collider other)
+    private void OnGoalStay(Collider other)
     {
+        if (AlertManager.Get.isAlerted)
+        {
+            return;
+        }
+
         foreach (var guardCharacter in GuardCharacters)
         {
             guardCharacter.BehaviorComponent.isPaused = true;
@@ -76,10 +90,8 @@ public class ScreenComponent : MonoBehaviour
         {
             NextSceneComponent.Activate();
         }
-    }
 
-    private void OnGoalExit(Collider other)
-    {
+        OnGoal.Invoke();
     }
 
     private void FindGuardCharacters()
@@ -95,6 +107,33 @@ public class ScreenComponent : MonoBehaviour
             {
                 GuardCharacters.Add(guardCharacter);
             }
+        }
+    }
+
+    private void OnValidate()
+    {
+        Debug.Log("Coucou");
+        var aspect = Box.size.x / Box.size.z;
+        float targetAspect = aspectRatio.x / aspectRatio.y;
+        if (Mathf.Abs(aspect - targetAspect) > float.Epsilon)
+        {
+            Vector3 size = Box.size;
+            size.z = Box.size.x / targetAspect;
+            Box.size = size;
+        }
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.yellow;
+
+        if (Box != null)
+        {
+            Vector3 center = Box.center + transform.position;
+            Vector3 size = Box.size;
+
+            // Draw a wireframe box using Gizmos
+            Gizmos.DrawWireCube(center, size);
         }
     }
 }

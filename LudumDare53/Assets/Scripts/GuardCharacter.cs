@@ -2,10 +2,19 @@ using UnityEngine;
 
 public class GuardCharacter : Character
 {
-    public BehaviorComponent BehaviorComponent;
-
-    private void Awake()
+    public PerceptionComponent PerceptionComponent
     {
-        BehaviorComponent = GetComponent<BehaviorComponent>();
+        get => GetComponent<PerceptionComponent>();
+    }
+
+    public BehaviorComponent BehaviorComponent
+    {
+        get => GetComponent<BehaviorComponent>();
+    }
+
+    public override void OnRespawn()
+    {
+        base.OnRespawn();
+        PerceptionComponent.OnRespawn();
     }
 }
