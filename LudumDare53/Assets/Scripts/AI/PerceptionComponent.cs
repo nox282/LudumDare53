@@ -6,6 +6,7 @@ using UnityEngine;
 public class PerceptionComponent : MonoBehaviour
 {
     [SerializeField] private LayerMask detectionLayerMask;
+    [SerializeField] private LayerMask alertLayerMask;
     private GameObject player;
     [SerializeField] private float viewRadius;
     [SerializeField][Range(0, 360)] public float viewAngle;
@@ -40,7 +41,8 @@ public class PerceptionComponent : MonoBehaviour
         if (IsInView(ownerTransform, playerTransform))
         {
             RaycastHit hit;
-            bool hasHit = Physics.Raycast(ownerTransform.position, dirToPlayer, out hit, viewRadius, detectionLayerMask);
+            LayerMask layerMask = AlertManager.Get.isAlerted ? alertLayerMask : detectionLayerMask;
+            bool hasHit = Physics.Raycast(ownerTransform.position, dirToPlayer, out hit, viewRadius, layerMask);
             if (hasHit && hit.transform.gameObject == player)
             {
                 hasPlayerInView = true;
@@ -54,11 +56,14 @@ public class PerceptionComponent : MonoBehaviour
             if (currentTime - lastSeen > lostSightBufferTime)
             {
                 hasPlayerInView = false;
+
+                Debug.Log($"{gameObject.name} has lost player");
                 lostPlayer?.Invoke();
             }
         }
         else if (hasPlayerInView)
         {
+            Debug.Log($"{gameObject.name} has detected player");
             detectedPlayer?.Invoke();
         }
     }
@@ -83,6 +88,12 @@ public class PerceptionComponent : MonoBehaviour
             }
         }
         return result;
+    }
+
+    public void OnRespawn()
+    {
+        hasPlayerInView = false;
+        lostPlayer?.Invoke();
     }
 
     private void OnDrawGizmos()

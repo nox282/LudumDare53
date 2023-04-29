@@ -20,6 +20,11 @@ public class Character : MonoBehaviour
         RefreshScreenComponent();
     }
 
+    public virtual void OnRespawn()
+    {
+
+    }
+
     virtual public void RefreshScreenComponent()
     {
         if (CurrentScreenComponent != null)
