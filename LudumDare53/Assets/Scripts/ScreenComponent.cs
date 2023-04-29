@@ -15,7 +15,7 @@ public class ScreenComponent : MonoBehaviour
 
     public bool IsFirstScreen = false;
 
-	public UnityEvent OnGoal;
+    public UnityEvent OnGoal;
 
     private List<Vector3> originalPositions = new List<Vector3>();
 
@@ -37,14 +37,12 @@ public class ScreenComponent : MonoBehaviour
 
     private void OnEnable()
     {
-        Goal.OnTriggerEnterEvent += OnGoalEnter;
-        Goal.OnTriggerExitEvent += OnGoalExit;
+        Goal.OnTriggerStayEvent += OnGoalStay;
     }
 
     private void OnDisable()
     {
-        Goal.OnTriggerEnterEvent -= OnGoalEnter;
-        Goal.OnTriggerExitEvent -= OnGoalExit;
+        Goal.OnTriggerStayEvent -= OnGoalStay;
     }
 
     public void Respawn()
@@ -73,8 +71,13 @@ public class ScreenComponent : MonoBehaviour
         PlayerCharacter.Get.transform.position = StartTransform.position;
     }
 
-    private void OnGoalEnter(Collider other)
+    private void OnGoalStay(Collider other)
     {
+        if (AlertManager.Get.isAlerted)
+        {
+            return;
+        }
+
         foreach (var guardCharacter in GuardCharacters)
         {
             guardCharacter.BehaviorComponent.isPaused = true;
@@ -85,11 +88,7 @@ public class ScreenComponent : MonoBehaviour
             NextSceneComponent.Activate();
         }
 
-		OnGoal.Invoke();
-	}
-
-    private void OnGoalExit(Collider other)
-    {
+        OnGoal.Invoke();
     }
 
     private void FindGuardCharacters()

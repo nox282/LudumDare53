@@ -9,7 +9,9 @@ public class PerceptionComponent : MonoBehaviour
     [SerializeField] private LayerMask alertLayerMask;
     private GameObject player;
     [SerializeField] private float viewRadius;
+    [SerializeField] private float viewRadiusInAlertMode;
     [SerializeField][Range(0, 360)] public float viewAngle;
+    [SerializeField][Range(0, 360)] public float viewAngleInAlertMode;
     [SerializeField] private float closeDetectionRadius;
     public float lostSightBufferTime;
 
@@ -42,7 +44,7 @@ public class PerceptionComponent : MonoBehaviour
         {
             RaycastHit hit;
             LayerMask layerMask = AlertManager.Get.isAlerted ? alertLayerMask : detectionLayerMask;
-            bool hasHit = Physics.Raycast(ownerTransform.position, dirToPlayer, out hit, viewRadius, layerMask);
+            bool hasHit = Physics.Raycast(ownerTransform.position, dirToPlayer, out hit, GetViewRadius(), layerMask);
             if (hasHit && hit.transform.gameObject == player)
             {
                 hasPlayerInView = true;
@@ -76,11 +78,11 @@ public class PerceptionComponent : MonoBehaviour
         {
             result = true;
         }
-        else if (distance < viewRadius)
+        else if (distance < GetViewRadius())
         {
             Vector3 dirToPlayer = (playerTransform.position - ownerTransform.position).normalized;
             float dotResult = Vector3.Dot(playerTransform.forward, dirToPlayer);
-            float radAngle = Mathf.Deg2Rad * (viewAngle / 2);
+            float radAngle = Mathf.Deg2Rad * (GetViewAngle() / 2);
             float cos = Mathf.Cos(radAngle);
             if (dotResult > cos)
             {
@@ -96,6 +98,16 @@ public class PerceptionComponent : MonoBehaviour
         lostPlayer?.Invoke();
     }
 
+    public float GetViewRadius()
+    {
+        return AlertManager.Get.isAlerted ? viewRadiusInAlertMode : viewRadius;
+    }
+
+    public float GetViewAngle()
+    {
+        return AlertManager.Get.isAlerted ? viewAngleInAlertMode : viewAngle;
+    }
+
     private void OnDrawGizmos()
     {
         if (drawDebug)
@@ -105,12 +117,12 @@ public class PerceptionComponent : MonoBehaviour
             Gizmos.color = Color.gray;
             Gizmos.DrawWireSphere(ownerPos, closeDetectionRadius);
             Gizmos.color = hasPlayerInView ? Color.red : Color.green;
-            Gizmos.DrawWireSphere(ownerPos, viewRadius);
-            float halfAngle = viewAngle / 2;
+            Gizmos.DrawWireSphere(ownerPos, GetViewRadius());
+            float halfAngle = GetViewAngle() / 2;
             Vector3 rightVector = Quaternion.AngleAxis(halfAngle, Vector3.up) * transform.forward;
             Vector3 leftVector = Quaternion.AngleAxis(-halfAngle, Vector3.up) * transform.forward;
-            Gizmos.DrawLine(ownerPos, ownerPos + (rightVector * viewRadius));
-            Gizmos.DrawLine(ownerPos, ownerPos + (leftVector * viewRadius));
+            Gizmos.DrawLine(ownerPos, ownerPos + (rightVector * GetViewRadius()));
+            Gizmos.DrawLine(ownerPos, ownerPos + (leftVector * GetViewRadius()));
         }
     }
 }
