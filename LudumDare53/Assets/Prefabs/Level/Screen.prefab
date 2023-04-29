@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 3942174550847951939}
   - component: {fileID: 3942174550847951940}
   - component: {fileID: 3942174550847951941}
+  - component: {fileID: 1721786233488025221}
   m_Layer: 0
   m_Name: Cube (1)
   m_TagString: Untagged
@@ -128,6 +129,21 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1721786233488025221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3942174550847951943}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d272c7cb7621851449c94efee2002873, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  needsRotationUpdate: 0
+  toFollow: 0
+  objectType: 2
 --- !u!1 &3942174551067625649
 GameObject:
   m_ObjectHideFlags: 0
@@ -140,6 +156,7 @@ GameObject:
   - component: {fileID: 3942174551067625677}
   - component: {fileID: 3942174551067625678}
   - component: {fileID: 3942174551067625679}
+  - component: {fileID: 6440024053705513057}
   m_Layer: 0
   m_Name: Cube (3)
   m_TagString: Untagged
@@ -225,6 +242,21 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &6440024053705513057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3942174551067625649}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d272c7cb7621851449c94efee2002873, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  needsRotationUpdate: 0
+  toFollow: 0
+  objectType: 2
 --- !u!1 &3942174551395730814
 GameObject:
   m_ObjectHideFlags: 0
@@ -237,6 +269,7 @@ GameObject:
   - component: {fileID: 3942174551395730810}
   - component: {fileID: 3942174551395730811}
   - component: {fileID: 3942174551395730812}
+  - component: {fileID: 9005679465096732373}
   m_Layer: 0
   m_Name: Cube (2)
   m_TagString: Untagged
@@ -322,6 +355,21 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &9005679465096732373
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3942174551395730814}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d272c7cb7621851449c94efee2002873, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  needsRotationUpdate: 0
+  toFollow: 0
+  objectType: 2
 --- !u!1 &3942174551721224845
 GameObject:
   m_ObjectHideFlags: 0
@@ -334,6 +382,7 @@ GameObject:
   - component: {fileID: 3942174551721224841}
   - component: {fileID: 3942174551721224842}
   - component: {fileID: 3942174551721224843}
+  - component: {fileID: 7772565255922599486}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -419,6 +468,21 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &7772565255922599486
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3942174551721224845}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d272c7cb7621851449c94efee2002873, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  needsRotationUpdate: 0
+  toFollow: 0
+  objectType: 2
 --- !u!1 &3942174552260446414
 GameObject:
   m_ObjectHideFlags: 0
@@ -489,7 +553,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 40, y: 5, z: 22.5}
+  m_Size: {x: 40, y: 5, z: 25}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &421501939164846701
 MonoBehaviour:
@@ -509,6 +573,7 @@ MonoBehaviour:
   NextSceneComponent: {fileID: 0}
   GuardCharacters: []
   StartTransform: {fileID: 3910363243020827726}
+  aspectRatio: {x: 16, y: 10}
   IsFirstScreen: 0
   OnGoal:
     m_PersistentCalls:

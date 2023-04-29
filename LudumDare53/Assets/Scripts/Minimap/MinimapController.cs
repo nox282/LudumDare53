@@ -70,7 +70,7 @@ public class MinimapController : MonoBehaviour
     private IEnumerator UpdateMinimap()
     {
         Vector3 followPos = Vector3.zero;
-        const float multiplier = 10f;
+        const float multiplier = 5f;
 
         while (true)
         {
