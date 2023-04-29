@@ -46,6 +46,11 @@ public class ScreenComponent : MonoBehaviour
 
     public void Respawn()
     {
+        PlayerCharacter.Get.OnRespawn();
+        foreach (var guardCharacter in GuardCharacters)
+        {
+            guardCharacter.PerceptionComponent.OnRespawn();
+        }
         Activate();
     }
 

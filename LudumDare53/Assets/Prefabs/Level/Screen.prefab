@@ -702,9 +702,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3942174552260446411}
     m_Modifications:
+    - target: {fileID: 3157157334264251124, guid: f2098852dbabe784d87f47fd36230593, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 3840073165995820434, guid: f2098852dbabe784d87f47fd36230593, type: 3}
       propertyPath: m_Name
       value: Goal
+      objectReference: {fileID: 0}
+    - target: {fileID: 3840073165995820434, guid: f2098852dbabe784d87f47fd36230593, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8536205309501168874, guid: f2098852dbabe784d87f47fd36230593, type: 3}
       propertyPath: m_RootOrder
