@@ -28,6 +28,7 @@ public class ScreenComponent : MonoBehaviour
         foreach (var guardCharacter in GuardCharacters)
         {
             originalPositions.Add(guardCharacter.transform.position);
+            guardCharacter.BehaviorComponent.enabled = false;
         }
 
         if (IsFirstScreen)
@@ -67,10 +68,8 @@ public class ScreenComponent : MonoBehaviour
                 var originalPosition = originalPositions[i];
                 guardCharacter.transform.position = originalPosition;
 
-                guardCharacter.BehaviorComponent.isPaused = false;
+                guardCharacter.BehaviorComponent.enabled = true;
             }
-
-
         });
     }
 
@@ -83,7 +82,7 @@ public class ScreenComponent : MonoBehaviour
 
         foreach (var guardCharacter in GuardCharacters)
         {
-            guardCharacter.BehaviorComponent.isPaused = true;
+            guardCharacter.BehaviorComponent.enabled = false;
         }
 
         if (NextSceneComponent != null)

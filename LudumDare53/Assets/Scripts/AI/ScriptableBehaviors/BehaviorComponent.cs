@@ -3,7 +3,6 @@ using UnityEngine;
 public class BehaviorComponent : MonoBehaviour
 {
     public ScriptableBehavior IdleBehaviorAsset;
-    public bool isPaused;
 
     private ScriptableBehavior currentBehavior = null;
 
@@ -14,11 +13,6 @@ public class BehaviorComponent : MonoBehaviour
 
     private void Update()
     {
-        if (isPaused)
-        {
-            return;
-        }
-
         if (currentBehavior != null)
         {
             currentBehavior.OnUpdate(Time.deltaTime, gameObject);
