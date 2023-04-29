@@ -132,7 +132,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 421501939164846701, guid: cb62e91a0a5b75e46ad875a05edad4ba, type: 3}
       propertyPath: IsFirstScreen
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3910363243020827726, guid: cb62e91a0a5b75e46ad875a05edad4ba, type: 3}
       propertyPath: m_RootOrder
@@ -661,6 +661,10 @@ PrefabInstance:
       propertyPath: NextSceneComponent
       value: 
       objectReference: {fileID: 529433733}
+    - target: {fileID: 3910363243020827726, guid: cb62e91a0a5b75e46ad875a05edad4ba, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3.99
+      objectReference: {fileID: 0}
     - target: {fileID: 3942174552260446411, guid: cb62e91a0a5b75e46ad875a05edad4ba, type: 3}
       propertyPath: m_RootOrder
       value: 2

@@ -4,8 +4,9 @@ public class PlayerCharacter : Character
 {
     static public PlayerCharacter Get { get; private set; }
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         Get = this;
     }
 }
