@@ -4,8 +4,9 @@ public class GuardCharacter : Character
 {
     public BehaviorComponent BehaviorComponent;
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         BehaviorComponent = GetComponent<BehaviorComponent>();
     }
 }
