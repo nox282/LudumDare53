@@ -4,10 +4,14 @@ public class PlayerCharacter : Character
 {
     static public PlayerCharacter Get { get; private set; }
 
+    public InputComponent InputComponent;
+
     protected override void Awake()
     {
         base.Awake();
         Get = this;
+
+        InputComponent = GetComponent<InputComponent>();
     }
 
     private void OnCollisionStay(Collision other)

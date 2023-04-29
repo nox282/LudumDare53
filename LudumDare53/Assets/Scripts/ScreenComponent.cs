@@ -57,18 +57,20 @@ public class ScreenComponent : MonoBehaviour
 
     public void Activate()
     {
-        for (int i = 0; i < Math.Min(GuardCharacters.Count, originalPositions.Count); i++)
-        {
-            var guardCharacter = GuardCharacters[i];
-            var originalPosition = originalPositions[i];
-            guardCharacter.transform.position = originalPosition;
-
-            guardCharacter.BehaviorComponent.isPaused = false;
-        }
-
-        CameraSnapComponent.Activate();
-
         PlayerCharacter.Get.transform.position = StartTransform.position;
+        CameraSnapComponent.Activate(() =>
+        {
+            for (int i = 0; i < Math.Min(GuardCharacters.Count, originalPositions.Count); i++)
+            {
+                var guardCharacter = GuardCharacters[i];
+                var originalPosition = originalPositions[i];
+                guardCharacter.transform.position = originalPosition;
+
+                guardCharacter.BehaviorComponent.isPaused = false;
+            }
+
+
+        });
     }
 
     private void OnGoalStay(Collider other)
@@ -104,6 +106,33 @@ public class ScreenComponent : MonoBehaviour
             {
                 GuardCharacters.Add(guardCharacter);
             }
+        }
+    }
+
+    private void OnValidate()
+    {
+        Debug.Log("Coucou");
+        var aspect = Box.size.x / Box.size.z;
+        float targetAspect = 16f / 9f;
+        if (Mathf.Abs(aspect - targetAspect) > float.Epsilon)
+        {
+            Vector3 size = Box.size;
+            size.z = Box.size.x / targetAspect;
+            Box.size = size;
+        }
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.yellow;
+
+        if (Box != null)
+        {
+            Vector3 center = Box.center + transform.position;
+            Vector3 size = Box.size;
+
+            // Draw a wireframe box using Gizmos
+            Gizmos.DrawWireCube(center, size);
         }
     }
 }

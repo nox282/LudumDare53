@@ -100,11 +100,19 @@ public class PerceptionComponent : MonoBehaviour
 
     public float GetViewRadius()
     {
+        if (AlertManager.Get == null)
+        {
+            return viewRadius;
+        }
         return AlertManager.Get.isAlerted ? viewRadiusInAlertMode : viewRadius;
     }
 
     public float GetViewAngle()
     {
+        if (AlertManager.Get == null)
+        {
+            return viewAngle;
+        }
         return AlertManager.Get.isAlerted ? viewAngleInAlertMode : viewAngle;
     }
 
