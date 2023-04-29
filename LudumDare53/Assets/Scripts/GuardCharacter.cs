@@ -11,4 +11,10 @@ public class GuardCharacter : Character
     {
         get => GetComponent<BehaviorComponent>();
     }
+
+    public override void OnRespawn()
+    {
+        base.OnRespawn();
+        PerceptionComponent.OnRespawn();
+    }
 }

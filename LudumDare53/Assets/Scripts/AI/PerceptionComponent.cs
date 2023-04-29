@@ -90,6 +90,12 @@ public class PerceptionComponent : MonoBehaviour
         return result;
     }
 
+    public void OnRespawn()
+    {
+        hasPlayerInView = false;
+        lostPlayer?.Invoke();
+    }
+
     private void OnDrawGizmos()
     {
         if (drawDebug)
