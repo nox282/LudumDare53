@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class MovementComponent : MonoBehaviour
 {
+	public Animator Animator;
     public Rigidbody Rigidbody;
     public float MoveSpeed = 5f;
 
@@ -18,5 +19,8 @@ public class MovementComponent : MonoBehaviour
 
         LastMove = direction.normalized * MoveSpeed * Time.deltaTime;
         Rigidbody.MovePosition(transform.position + LastMove);
-    }
+
+		Animator.SetFloat("speedX", Rigidbody.velocity.x);
+		Animator.SetFloat("speedZ", Rigidbody.velocity.z);
+	}
 }
