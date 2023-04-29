@@ -350,6 +350,10 @@ PrefabInstance:
       propertyPath: spline
       value: 
       objectReference: {fileID: 1536308739}
+    - target: {fileID: -7381270635312674532, guid: 8f33ed9bc67564444b62484d79f183d7, type: 3}
+      propertyPath: spline
+      value: 
+      objectReference: {fileID: 1536308739}
     - target: {fileID: 1206659884633389084, guid: 8f33ed9bc67564444b62484d79f183d7, type: 3}
       propertyPath: m_RootOrder
       value: 4
