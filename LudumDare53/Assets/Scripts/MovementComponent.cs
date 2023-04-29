@@ -3,6 +3,7 @@ using UnityEngine;
 public class MovementComponent : MonoBehaviour
 {
     public Rigidbody Rigidbody;
+    public Animator Animator;
     public float MoveSpeed = 5f;
 
     public float Y = .5f;
@@ -37,6 +38,9 @@ public class MovementComponent : MonoBehaviour
         Vector3 position = transform.position;
         position.y = Y;
         transform.position = position;
+
+        Animator.SetFloat("speedX", Rigidbody.velocity.x);
+        Animator.SetFloat("speedZ", Rigidbody.velocity.z);
     }
 
     public void Move(Vector3 direction)

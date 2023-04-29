@@ -38,7 +38,6 @@ public class RotationComponent : MonoBehaviour
             float angle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg;
 
             // Set the rotation to left or right if the angle is within a certain range
-            Debug.Log(angle);
             if (Mathf.Abs(angle) > 44f && Mathf.Abs(angle) < 136f)
             {
                 angle = angle > 0f ? 90f : -90f;
