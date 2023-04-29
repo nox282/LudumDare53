@@ -289,8 +289,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb80017d8a268b74eb98075d24d73dd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneAsset: {fileID: 102900000, guid: abe9e2ae8a81d1749bcd2d69cf995626, type: 3}
-  SceneName: Assets/Scenes/IntroScene.unity
+  sceneAsset: {fileID: 102900000, guid: c65646224e841804a9f2dd9e3b20554d, type: 3}
+  SceneName: Assets/Scenes/EndScene.unity
 --- !u!1 &1158260411
 GameObject:
   m_ObjectHideFlags: 0
