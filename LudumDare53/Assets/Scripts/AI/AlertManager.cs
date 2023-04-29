@@ -7,14 +7,19 @@ public class AlertManager : MonoBehaviour
     public static AlertManager Get { get; private set; }
 
     public AlertBehavior AlertBehavior;
+    public GameObject CanvasPrefab;
 
     private List<GuardCharacter> guardCharacters = new List<GuardCharacter>();
     public bool isAlerted = false;
     private int guardThatDetectedThePlayer = 0;
+    private GameObject canvasGO;
 
     private void Awake()
     {
         Get = this;
+
+        canvasGO = Instantiate(CanvasPrefab, transform);
+        canvasGO.SetActive(false);
     }
 
     private void OnEnable()
@@ -52,6 +57,7 @@ public class AlertManager : MonoBehaviour
         }
 
         isAlerted = true;
+        canvasGO.SetActive(isAlerted);
 
         foreach (var guardCharacter in guardCharacters)
         {
@@ -72,6 +78,7 @@ public class AlertManager : MonoBehaviour
         }
 
         isAlerted = false;
+        canvasGO.SetActive(isAlerted);
 
         foreach (var guardCharacter in guardCharacters)
         {
