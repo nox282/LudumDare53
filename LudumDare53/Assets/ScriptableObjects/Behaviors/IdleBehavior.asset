@@ -12,3 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20b05bf82d0b27f4091de1a9474554f4, type: 3}
   m_Name: IdleBehavior
   m_EditorClassIdentifier: 
+  IdleMoveSpeed: 1
+  TimeBeforeNewDirectionIsPickedInSeconds: 3
