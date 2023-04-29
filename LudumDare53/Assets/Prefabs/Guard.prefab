@@ -19,6 +19,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 3184036242731328428, guid: eff84e75c2e5cf641bb1414e267b599b, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 6686344268097966425, guid: eff84e75c2e5cf641bb1414e267b599b, type: 3}
       propertyPath: m_Layer
       value: 3
@@ -90,6 +94,28 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3184036242731328428, guid: eff84e75c2e5cf641bb1414e267b599b, type: 3}
   m_PrefabInstance: {fileID: 7080192755476327754}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &-9088936196231989680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5651487411994988262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 413eb45c66a99fc4c89ee3e3878d3aeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  detectionLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  viewRadius: 5
+  viewAngle: 60
+  closeDetectionRadius: 1
+  lostSightBufferTime: 0.5
+  lastKnownPosition: {fileID: 0}
+  lastSeen: 0
+  drawDebug: 1
 --- !u!114 &1437503750437798012
 MonoBehaviour:
   m_ObjectHideFlags: 0
