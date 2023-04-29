@@ -4,5 +4,11 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/IntroScene.unity
+    guid: abe9e2ae8a81d1749bcd2d69cf995626
+  - enabled: 1
+    path: Assets/Scenes/GameLoopGym.unity
+    guid: 71e4b67888858f944bad8bb8831abc83
   m_configObjects: {}
