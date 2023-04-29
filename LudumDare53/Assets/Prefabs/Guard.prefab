@@ -128,4 +128,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bfbd6e22b21d6849b5c6b7f1236b660, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StartBehaviorAsset: {fileID: 11400000, guid: aeb398e7031987646be4d7fc32a5a98c, type: 2}
+  IdleBehaviorAsset: {fileID: 11400000, guid: aeb398e7031987646be4d7fc32a5a98c, type: 2}
+  isPaused: 0
