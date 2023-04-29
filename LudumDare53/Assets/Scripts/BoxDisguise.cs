@@ -5,15 +5,13 @@ public class BoxDisguise : MonoBehaviour
 	[SerializeField] private LayerMask movingLayer;
 	[SerializeField] private LayerMask idleLayer;
 
-	private MovementComponent moveComponent;
-	private Animator animator;
+	[SerializeField] private MovementComponent moveComponent;
+	[SerializeField] private Animator animator;
 
 	private bool isMoving = true;
 
 	private void Start()
 	{
-		moveComponent = GetComponent<MovementComponent>();
-		animator = GetComponent<Animator>();
 	}
 
 	private void Update()
