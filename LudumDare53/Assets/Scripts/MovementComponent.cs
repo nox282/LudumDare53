@@ -49,4 +49,17 @@ public class MovementComponent : MonoBehaviour
         direction.y = 0f; // Remove any y component
         InputVelocity = direction.normalized * MoveSpeed;
     }
+
+    public bool MoveTo(Vector3 destination)
+    {
+        float distBuffer = 0.55f;
+        float dist = Vector3.Distance(transform.position, destination);
+        if (dist < distBuffer)
+        {
+            return true;
+        }
+        Vector3 direction = destination - transform.position;
+        Move(direction);
+        return false;
+    }
 }
