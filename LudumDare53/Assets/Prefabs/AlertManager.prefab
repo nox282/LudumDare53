@@ -45,4 +45,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AlertBehavior: {fileID: 11400000, guid: 75c35359a80402c48ab60dff393aa035, type: 2}
+  CanvasPrefab: {fileID: 5607641304802574374, guid: 424488cfc55234641887029ea3fe6708, type: 3}
   isAlerted: 0
