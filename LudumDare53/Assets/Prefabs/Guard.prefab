@@ -113,6 +113,9 @@ MonoBehaviour:
   detectionLayerMask:
     serializedVersion: 2
     m_Bits: 1
+  alertLayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
   viewRadius: 5
   viewAngle: 60
   closeDetectionRadius: 1
@@ -148,4 +151,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CurrentScreenComponent: {fileID: 0}
   MovementComponent: {fileID: 0}
-  BehaviorComponent: {fileID: 0}

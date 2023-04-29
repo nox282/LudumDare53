@@ -2,11 +2,13 @@ using UnityEngine;
 
 public class GuardCharacter : Character
 {
-    public BehaviorComponent BehaviorComponent;
-
-    protected override void Awake()
+    public PerceptionComponent PerceptionComponent
     {
-        base.Awake();
-        BehaviorComponent = GetComponent<BehaviorComponent>();
+        get => GetComponent<PerceptionComponent>();
+    }
+
+    public BehaviorComponent BehaviorComponent
+    {
+        get => GetComponent<BehaviorComponent>();
     }
 }
