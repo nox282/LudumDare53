@@ -116,15 +116,29 @@ MonoBehaviour:
   alertLayerMask:
     serializedVersion: 2
     m_Bits: 65
-  viewRadius: 5
-  viewRadiusInAlertMode: 7.5
-  viewAngle: 60
-  viewAngleInAlertMode: 110
-  closeDetectionRadius: 1
+  viewRadius: 7
+  viewRadiusInAlertMode: 10
+  viewAngle: 110
+  viewAngleInAlertMode: 240
+  closeDetectionRadius: 2
   lostSightBufferTime: 0.5
   lastKnownPosition: {fileID: 0}
   lastSeen: 0
   drawDebug: 1
+--- !u!114 &-7381270635312674532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5651487411994988262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 024b060e6315baa449d0bddfdd4f8950, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spline: {fileID: 0}
+  loopPath: 1
 --- !u!114 &1437503750437798012
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -153,17 +167,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CurrentScreenComponent: {fileID: 0}
   MovementComponent: {fileID: 0}
---- !u!114 &-7381270635312674532
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5651487411994988262}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 024b060e6315baa449d0bddfdd4f8950, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spline: {fileID: 0}
-  loopPath: 1

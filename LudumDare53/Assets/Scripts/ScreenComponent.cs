@@ -12,6 +12,7 @@ public class ScreenComponent : MonoBehaviour
     public ScreenComponent NextSceneComponent;
     public List<GuardCharacter> GuardCharacters;
     public Transform StartTransform;
+    public Vector2 aspectRatio = new Vector2(16, 10);
 
     public bool IsFirstScreen = false;
 
@@ -113,7 +114,7 @@ public class ScreenComponent : MonoBehaviour
     {
         Debug.Log("Coucou");
         var aspect = Box.size.x / Box.size.z;
-        float targetAspect = 16f / 9f;
+        float targetAspect = aspectRatio.x / aspectRatio.y;
         if (Mathf.Abs(aspect - targetAspect) > float.Epsilon)
         {
             Vector3 size = Box.size;

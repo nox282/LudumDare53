@@ -22,7 +22,7 @@ public class CameraSnapComponent : MonoBehaviour
 
         StartCoroutine(TransitionRoutine(
             targetPosition: transform.position + rotatedVector * offset,
-            targetOrthographicSize: BoxCollider.size.x * 0.5f,
+            targetOrthographicSize: BoxCollider.size.z * 0.5f,
             targetAspect: BoxCollider.size.x / BoxCollider.size.z,
             TransitionDuration,
             callback));
