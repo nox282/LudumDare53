@@ -90,6 +90,19 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3184036242731328428, guid: eff84e75c2e5cf641bb1414e267b599b, type: 3}
   m_PrefabInstance: {fileID: 7080192755476327754}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &-1106444160226462216
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5651487411994988262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc7c29dfb704b134eb9cb2660332d5d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BehaviorComponent: {fileID: 1437503750437798012}
 --- !u!114 &1437503750437798012
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -102,4 +115,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bfbd6e22b21d6849b5c6b7f1236b660, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StartBehaviorAsset: {fileID: 11400000, guid: aeb398e7031987646be4d7fc32a5a98c, type: 2}
+  IdleBehaviorAsset: {fileID: 11400000, guid: aeb398e7031987646be4d7fc32a5a98c, type: 2}
+  isPaused: 1

@@ -2,21 +2,32 @@ using UnityEngine;
 
 public class BehaviorComponent : MonoBehaviour
 {
-    [SerializeField] private ScriptableBehavior StartBehaviorAsset;
+    public ScriptableBehavior IdleBehaviorAsset;
+    public bool isPaused;
 
-    ScriptableBehavior currentBehavior = null;
+    private ScriptableBehavior currentBehavior = null;
 
     private void Start()
     {
-        SetBehavior(StartBehaviorAsset);
+        SetBehavior(IdleBehaviorAsset);
     }
 
     private void Update()
     {
+        if (isPaused)
+        {
+            return;
+        }
+
         if (currentBehavior != null)
         {
             currentBehavior.OnUpdate(Time.deltaTime, gameObject);
         }
+    }
+
+    public void SetIdle()
+    {
+        SetBehavior(IdleBehaviorAsset);
     }
 
     public void SetBehavior(ScriptableBehavior behavior)
