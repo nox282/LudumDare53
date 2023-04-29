@@ -16,6 +16,7 @@ public class MovementComponent : MonoBehaviour
     {
         Rigidbody = GetComponent<Rigidbody>();
         owner = GetComponent<Character>();
+        Animator = GetComponent<Animator>();
     }
 
     private void FixedUpdate()
