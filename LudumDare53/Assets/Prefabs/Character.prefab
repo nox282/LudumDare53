@@ -83,7 +83,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32dc34aaf5d9aa7428cd97050fff1fe9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Rigidbody: {fileID: 0}
+  Animator: {fileID: 4188303800831579414}
+  Rigidbody: {fileID: 3662067273133764471}
   MoveSpeed: 5
 --- !u!114 &2515199164877679170
 MonoBehaviour:
