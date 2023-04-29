@@ -670,7 +670,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneAsset: {fileID: 102900000, guid: 71e4b67888858f944bad8bb8831abc83, type: 3}
-  SceneName: GameLoopGym
+  SceneName: Assets/Scenes/GameLoopGym.unity
 --- !u!1 &1994013104
 GameObject:
   m_ObjectHideFlags: 0
