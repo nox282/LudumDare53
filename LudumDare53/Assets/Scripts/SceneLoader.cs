@@ -19,7 +19,7 @@ public class SceneLoader : MonoBehaviour
 		}
 		else
 		{
-			SceneName = sceneAsset.name;
+			SceneName = UnityEditor.AssetDatabase.GetAssetPath(sceneAsset);
 		}
 	}
 #endif
