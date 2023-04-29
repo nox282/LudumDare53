@@ -19,6 +19,15 @@ public class FollowPathBehavior : ScriptableBehavior
         {
             movementComponent.MoveSpeed = MoveSpeed;
         }
+        if (pathComponent)
+        {
+            Vector3 dest = pathComponent.GetDestination();
+            if (dest != Vector3.zero)
+            {
+                Owner.transform.position = dest;
+                pathComponent.UpdateToNextPoint();
+            }
+        }
     }
 
     public override void OnUpdate(float deltaTime, GameObject Owner)
