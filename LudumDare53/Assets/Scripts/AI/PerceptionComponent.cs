@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,7 +8,7 @@ public class PerceptionComponent : MonoBehaviour
     [SerializeField] private LayerMask detectionLayerMask;
     private GameObject player;
     [SerializeField] private float viewRadius;
-    [SerializeField] [Range(0, 360)] public float viewAngle;
+    [SerializeField][Range(0, 360)] public float viewAngle;
     [SerializeField] private float closeDetectionRadius;
     public float lostSightBufferTime;
 
@@ -16,9 +17,8 @@ public class PerceptionComponent : MonoBehaviour
     public float lastSeen;
     private bool hasPlayerInView = false;
 
-    public delegate void DetectionEvent();
-    public DetectionEvent detectedPlayer;
-    public DetectionEvent lostPlayer;
+    public Action detectedPlayer;
+    public Action lostPlayer;
 
     [SerializeField] private bool drawDebug = true;
 
@@ -54,16 +54,16 @@ public class PerceptionComponent : MonoBehaviour
             if (currentTime - lastSeen > lostSightBufferTime)
             {
                 hasPlayerInView = false;
-                lostPlayer();
+                lostPlayer?.Invoke();
             }
         }
-        else if(hasPlayerInView)
+        else if (hasPlayerInView)
         {
-            detectedPlayer();
+            detectedPlayer?.Invoke();
         }
     }
 
-    private bool IsInView(Transform ownerTransform, Transform playerTransform) 
+    private bool IsInView(Transform ownerTransform, Transform playerTransform)
     {
         bool result = false;
         float distance = Vector2.Distance(playerTransform.position, ownerTransform.position);
