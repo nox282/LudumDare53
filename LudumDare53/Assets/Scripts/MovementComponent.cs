@@ -2,13 +2,25 @@ using UnityEngine;
 
 public class MovementComponent : MonoBehaviour
 {
-    [SerializeField] public float MoveSpeed = 5f;
+    public Rigidbody Rigidbody;
+	public Animator Animator;
+    public float MoveSpeed = 5f;
+
+    public Vector3 LastMove { get; set; }
+
+    private void Awake()
+    {
+        Rigidbody = GetComponent<Rigidbody>();
+    }
 
     public void Move(Vector3 direction)
     {
         direction.y = 0f; // Remove any y component
 
-        Vector3 movement = direction.normalized * MoveSpeed * Time.deltaTime;
-        transform.position += movement;
-    }
+        LastMove = direction.normalized * MoveSpeed;
+        Rigidbody.velocity = LastMove;
+
+		Animator.SetFloat("speedX", Rigidbody.velocity.x);
+		Animator.SetFloat("speedZ", Rigidbody.velocity.z);
+	}
 }

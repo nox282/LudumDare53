@@ -7,9 +7,33 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 792278992194463381, guid: eff84e75c2e5cf641bb1414e267b599b, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3184036242731328428, guid: eff84e75c2e5cf641bb1414e267b599b, type: 3}
       propertyPath: m_Name
       value: Guard
+      objectReference: {fileID: 0}
+    - target: {fileID: 3184036242731328428, guid: eff84e75c2e5cf641bb1414e267b599b, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3184036242731328428, guid: eff84e75c2e5cf641bb1414e267b599b, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 4188303800831579414, guid: eff84e75c2e5cf641bb1414e267b599b, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 5233b3c8690e512438b8ab238c634931, type: 2}
+    - target: {fileID: 6686344268097966425, guid: eff84e75c2e5cf641bb1414e267b599b, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6750585825895995816, guid: eff84e75c2e5cf641bb1414e267b599b, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6881558097052588560, guid: eff84e75c2e5cf641bb1414e267b599b, type: 3}
       propertyPath: m_Color.b
@@ -74,7 +98,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3184036242731328428, guid: eff84e75c2e5cf641bb1414e267b599b, type: 3}
   m_PrefabInstance: {fileID: 7080192755476327754}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &717678035565167945
+--- !u!114 &-9088936196231989680
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -83,13 +107,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 5651487411994988262}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d272c7cb7621851449c94efee2002873, type: 3}
+  m_Script: {fileID: 11500000, guid: 413eb45c66a99fc4c89ee3e3878d3aeb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  needsPositionUpdate: 1
-  needsRotationUpdate: 1
-  toFollow: 0
-  objectType: 1
+  detectionLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  viewRadius: 5
+  viewAngle: 60
+  closeDetectionRadius: 1
+  lostSightBufferTime: 0.5
+  lastKnownPosition: {fileID: 0}
+  lastSeen: 0
+  drawDebug: 1
 --- !u!114 &1437503750437798012
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -102,4 +132,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bfbd6e22b21d6849b5c6b7f1236b660, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StartBehaviorAsset: {fileID: 11400000, guid: aeb398e7031987646be4d7fc32a5a98c, type: 2}
+  IdleBehaviorAsset: {fileID: 11400000, guid: aeb398e7031987646be4d7fc32a5a98c, type: 2}
+  isPaused: 0
