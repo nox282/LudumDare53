@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -29,7 +27,7 @@ public class ScreenGoal : MonoBehaviour
 
     private void OnGoalStay(Collider other)
     {
-        if (NeedStamp && !PlayerCharacter.Get.isStamped)
+        if (NeedStamp && !PlayerCharacter.Get.IsStamped())
         {
             AlertManager.Get.ALERTEGENERAAAAAAAAAAAAAAAAAALE();
             return;
