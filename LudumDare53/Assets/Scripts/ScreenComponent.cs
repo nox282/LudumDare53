@@ -6,19 +6,20 @@ using UnityEngine.Events;
 
 public class ScreenComponent : MonoBehaviour
 {
-    public TriggerComponent Goal;
     public BoxCollider Box;
     public CameraSnapComponent CameraSnapComponent;
     public ScreenComponent NextSceneComponent;
     public List<GuardCharacter> GuardCharacters;
-    public Transform StartTransform;
     public Vector2 aspectRatio = new Vector2(16, 10);
 
     public bool IsFirstScreen = false;
+    public Transform FirstStartTransform;
 
     public UnityEvent OnGoal;
 
     private List<Vector3> originalPositions = new List<Vector3>();
+
+	private Vector3 _respawnPosition;
 
     private void Start()
     {
@@ -33,18 +34,8 @@ public class ScreenComponent : MonoBehaviour
 
         if (IsFirstScreen)
         {
-            Activate();
+            Activate(FirstStartTransform.position);
         }
-    }
-
-    private void OnEnable()
-    {
-        Goal.OnTriggerStayEvent += OnGoalStay;
-    }
-
-    private void OnDisable()
-    {
-        Goal.OnTriggerStayEvent -= OnGoalStay;
     }
 
     public void Respawn()
@@ -54,12 +45,14 @@ public class ScreenComponent : MonoBehaviour
         {
             guardCharacter.PerceptionComponent.OnRespawn();
         }
-        Activate();
+        Activate(_respawnPosition);
     }
 
-    public void Activate()
+    public void Activate(Vector3 spawnPoint)
     {
-        PlayerCharacter.Get.transform.position = StartTransform.position;
+		_respawnPosition = spawnPoint;
+
+		PlayerCharacter.Get.transform.position = spawnPoint;
 
         for (int i = 0; i < Math.Min(GuardCharacters.Count, originalPositions.Count); i++)
         {
@@ -77,7 +70,7 @@ public class ScreenComponent : MonoBehaviour
         });
     }
 
-    private void OnGoalStay(Collider other)
+    public void GoalReached(ScreenStart nextScreen)
     {
         if (AlertManager.Get.isAlerted)
         {
@@ -89,9 +82,9 @@ public class ScreenComponent : MonoBehaviour
             guardCharacter.BehaviorComponent.enabled = false;
         }
 
-        if (NextSceneComponent != null)
+        if (nextScreen.Screen != null)
         {
-            NextSceneComponent.Activate();
+			nextScreen.Screen.Activate(nextScreen.transform.position);
         }
         else if (!PlayerCharacter.Get.isStamped)
         {

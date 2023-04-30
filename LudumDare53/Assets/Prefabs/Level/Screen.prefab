@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3910363243020827726}
+  - component: {fileID: 8262123881715176853}
   m_Layer: 0
   m_Name: Start
   m_TagString: Untagged
@@ -31,6 +32,19 @@ Transform:
   m_Father: {fileID: 3942174552260446411}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8262123881715176853
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 10645080167069888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf70c51ff792b5a4386f86483b65aa65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Screen: {fileID: 421501939164846701}
 --- !u!1 &3942174552260446414
 GameObject:
   m_ObjectHideFlags: 0
@@ -108,14 +122,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc2630191af4efd4cb63a91765357a3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Goal: {fileID: 3942174552019535889}
   Box: {fileID: 3942174552260446413}
   CameraSnapComponent: {fileID: 3942174552260446412}
   NextSceneComponent: {fileID: 0}
   GuardCharacters: []
-  StartTransform: {fileID: 3910363243020827726}
   aspectRatio: {x: 16, y: 10}
   IsFirstScreen: 0
+  FirstStartTransform: {fileID: 0}
   OnGoal:
     m_PersistentCalls:
       m_Calls: []
@@ -206,3 +219,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52b5d88b918274142b4025906eb1bee0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4881378303227000386
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5432540698241344002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02f5afed6e70f0344beba3c3c8afb3d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NextScreenStart: {fileID: 0}
+  Screen: {fileID: 421501939164846701}
