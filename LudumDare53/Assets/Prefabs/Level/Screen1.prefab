@@ -1382,7 +1382,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7851530783873388687, guid: 5c6d5d4599c27de4bba91cb9a57ebeb5, type: 3}
       propertyPath: m_Name
-      value: Grid (1)
+      value: GridSC1
       objectReference: {fileID: 0}
     - target: {fileID: 8558446255328086681, guid: 5c6d5d4599c27de4bba91cb9a57ebeb5, type: 3}
       propertyPath: m_Color.b
