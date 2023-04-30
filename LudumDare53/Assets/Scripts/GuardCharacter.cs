@@ -28,7 +28,14 @@ public class GuardCharacter : Character
     {
         base.OnRespawn();
         PerceptionComponent.OnRespawn();
-        PathComponent.OnRespawn();
+        PathComponent.ResetPathOrder();
+    }
+
+    public override void OnBeforeActivate()
+    {
+        base.OnBeforeActivate();
+        PathComponent.ResetPathOrder();
+        BehaviorComponent.SetIdle();
     }
 
     public void EnableAI(bool isAIEnabled)
