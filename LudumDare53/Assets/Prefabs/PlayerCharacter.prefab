@@ -119,6 +119,26 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 34b1a21581b8cd64891eba42bf9502b8, type: 2}
+    - target: {fileID: 4476823164308643656, guid: eff84e75c2e5cf641bb1414e267b599b, type: 3}
+      propertyPath: m_Size.x
+      value: 0.76
+      objectReference: {fileID: 0}
+    - target: {fileID: 4476823164308643656, guid: eff84e75c2e5cf641bb1414e267b599b, type: 3}
+      propertyPath: m_Size.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4476823164308643656, guid: eff84e75c2e5cf641bb1414e267b599b, type: 3}
+      propertyPath: m_Size.z
+      value: 0.46
+      objectReference: {fileID: 0}
+    - target: {fileID: 4476823164308643656, guid: eff84e75c2e5cf641bb1414e267b599b, type: 3}
+      propertyPath: m_Center.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4476823164308643656, guid: eff84e75c2e5cf641bb1414e267b599b, type: 3}
+      propertyPath: m_Center.z
+      value: 0.12
+      objectReference: {fileID: 0}
     - target: {fileID: 6881558097052588560, guid: eff84e75c2e5cf641bb1414e267b599b, type: 3}
       propertyPath: m_Sprite
       value: 
