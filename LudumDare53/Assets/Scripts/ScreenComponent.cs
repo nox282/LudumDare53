@@ -111,7 +111,6 @@ public class ScreenComponent : MonoBehaviour
 
     private void OnValidate()
     {
-        Debug.Log("Coucou");
         var aspect = Box.size.x / Box.size.z;
         float targetAspect = aspectRatio.x / aspectRatio.y;
         if (Mathf.Abs(aspect - targetAspect) > float.Epsilon)
