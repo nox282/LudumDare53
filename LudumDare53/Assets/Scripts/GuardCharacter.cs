@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class GuardCharacter : Character
 {
+    public SpriteRenderer SpriteRenderer;
+
     public PerceptionComponent PerceptionComponent
     {
         get => GetComponent<PerceptionComponent>();
@@ -10,6 +12,11 @@ public class GuardCharacter : Character
     public BehaviorComponent BehaviorComponent
     {
         get => GetComponent<BehaviorComponent>();
+    }
+
+    protected override void Awake()
+    {
+        SpriteRenderer = GetComponentInChildren<SpriteRenderer>();
     }
 
     public override void OnRespawn()
@@ -34,5 +41,7 @@ public class GuardCharacter : Character
         {
             MovementComponent.enabled = isAIEnabled;
         }
+
+        SpriteRenderer.enabled = isAIEnabled;
     }
 }

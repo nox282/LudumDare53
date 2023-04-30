@@ -13,6 +13,13 @@ public class RotationComponent : MonoBehaviour
     [SerializeField] private Color debugArrowColor = Color.white;
 
     private Quaternion lastRotation;
+    private Animator Animator;
+
+    private void Awake()
+    {
+        Animator = GetComponent<Animator>();
+
+    }
 
     private void Start()
     {
@@ -50,6 +57,7 @@ public class RotationComponent : MonoBehaviour
             // Rotate object to face cardinal direction
             lastRotation = Quaternion.Euler(0f, angle, 0f);
             transform.rotation = lastRotation;
+            Animator.SetFloat("angle", angle);
         }
     }
 

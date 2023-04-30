@@ -27,8 +27,7 @@ public class ScreenComponent : MonoBehaviour
         foreach (var guardCharacter in GuardCharacters)
         {
             originalPositions.Add(guardCharacter.transform.position);
-            guardCharacter.EnableAI(false);
-
+            guardCharacter.gameObject.SetActive(false);
         }
 
         if (IsFirstScreen)
@@ -64,7 +63,7 @@ public class ScreenComponent : MonoBehaviour
         {
             foreach (var guardCharacter in GuardCharacters)
             {
-                guardCharacter.EnableAI(true);
+                guardCharacter.gameObject.SetActive(true);
             }
         });
     }
@@ -78,7 +77,7 @@ public class ScreenComponent : MonoBehaviour
 
         foreach (var guardCharacter in GuardCharacters)
         {
-            guardCharacter.EnableAI(false);
+            guardCharacter.gameObject.SetActive(false);
         }
 
         if (nextScreen != null)

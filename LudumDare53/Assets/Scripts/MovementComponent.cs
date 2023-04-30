@@ -52,6 +52,7 @@ public class MovementComponent : MonoBehaviour
 
         Animator.SetFloat("speedX", Rigidbody.velocity.x);
         Animator.SetFloat("speedZ", Rigidbody.velocity.z);
+        Animator.SetFloat("speed", Rigidbody.velocity.sqrMagnitude);
     }
 
     public void Move(Vector3 direction)
