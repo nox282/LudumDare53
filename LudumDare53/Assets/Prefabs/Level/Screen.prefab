@@ -80,7 +80,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BoxCollider: {fileID: 3942174552260446413}
-  ProjectedOffset: 500
+  ProjectedOffset: 1000
   "\u03B8": 45
   TransitionDuration: 0.5
 --- !u!65 &3942174552260446413
@@ -94,7 +94,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 40, y: 5, z: 25}
+  m_Size: {x: 63.8, y: 5, z: 39.875}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &421501939164846701
 MonoBehaviour:

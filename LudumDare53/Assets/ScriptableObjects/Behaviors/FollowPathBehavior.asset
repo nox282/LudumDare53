@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 300e7b9c22ba1a84cac530b357b6de27, type: 3}
   m_Name: FollowPathBehavior
   m_EditorClassIdentifier: 
-  MoveSpeed: 1
+  MoveSpeed: 5

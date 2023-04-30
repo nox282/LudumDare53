@@ -86,7 +86,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Rigidbody: {fileID: 3662067273133764471}
   Animator: {fileID: 4188303800831579414}
-  MoveSpeed: 5
+  MoveSpeed: 10
   Y: 2.2
 --- !u!114 &2515199164877679170
 MonoBehaviour:
