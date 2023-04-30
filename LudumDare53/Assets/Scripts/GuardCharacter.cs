@@ -17,4 +17,17 @@ public class GuardCharacter : Character
         base.OnRespawn();
         PerceptionComponent.OnRespawn();
     }
+
+    public void EnableAI(bool isAIEnabled)
+    {
+        if (PerceptionComponent != null)
+        {
+            PerceptionComponent.enabled = isAIEnabled;
+        }
+
+        if (BehaviorComponent != null)
+        {
+            BehaviorComponent.enabled = isAIEnabled;
+        }
+    }
 }
