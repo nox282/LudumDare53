@@ -80,7 +80,7 @@ public class ScreenComponent : MonoBehaviour
             guardCharacter.BehaviorComponent.enabled = false;
         }
 
-        if (nextScreen.Screen != null)
+        if (nextScreen != null)
         {
 			nextScreen.Screen.Activate(nextScreen.transform.position);
         }        

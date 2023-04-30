@@ -71,5 +71,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Screen3
       objectReference: {fileID: 0}
+    - target: {fileID: 4881378303227000386, guid: cb62e91a0a5b75e46ad875a05edad4ba, type: 3}
+      propertyPath: NeedStamp
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cb62e91a0a5b75e46ad875a05edad4ba, type: 3}

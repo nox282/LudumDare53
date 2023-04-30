@@ -278,7 +278,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 3387
+  m_VersionIndex: 3390
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -701,7 +701,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 3563
+  m_VersionIndex: 3566
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -1079,7 +1079,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 3522
+  m_VersionIndex: 3525
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -1395,7 +1395,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 3164
+  m_VersionIndex: 3167
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -1773,7 +1773,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 3030
+  m_VersionIndex: 3033
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -2089,7 +2089,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 3209
+  m_VersionIndex: 3212
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -2436,7 +2436,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 3286
+  m_VersionIndex: 3289
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -2944,7 +2944,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8536205309501168874, guid: f2098852dbabe784d87f47fd36230593, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 31.5
+      value: 26.21
       objectReference: {fileID: 0}
     - target: {fileID: 8536205309501168874, guid: f2098852dbabe784d87f47fd36230593, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2952,7 +2952,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8536205309501168874, guid: f2098852dbabe784d87f47fd36230593, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 8
+      value: 6.71
       objectReference: {fileID: 0}
     - target: {fileID: 8536205309501168874, guid: f2098852dbabe784d87f47fd36230593, type: 3}
       propertyPath: m_LocalRotation.w

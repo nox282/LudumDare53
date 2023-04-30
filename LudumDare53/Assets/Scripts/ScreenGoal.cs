@@ -32,7 +32,11 @@ public class ScreenGoal : MonoBehaviour
 		if (NeedStamp && !PlayerCharacter.Get.isStamped)
 			return;
 
-		Screen.GoalReached(NextScreenStart);
+		if(NextScreenStart != null)
+		{
+			Screen.GoalReached(NextScreenStart);
+		}
+
 		OnGoal.Invoke();
 	}
 }
