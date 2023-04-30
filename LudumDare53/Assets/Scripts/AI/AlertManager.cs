@@ -34,7 +34,7 @@ public class AlertManager : MonoBehaviour
 
     private void Start()
     {
-        guardCharacters = FindObjectsOfType<GuardCharacter>().ToList();
+        guardCharacters = FindObjectsOfType<GuardCharacter>(includeInactive: true).ToList();
 
         foreach (var guardCharacter in guardCharacters)
         {
@@ -96,7 +96,7 @@ public class AlertManager : MonoBehaviour
         OnAlertOn?.Invoke();
     }
 
-    public void TryStopAlert()
+    public void TryStopAlert(bool isRespawning = false)
     {
         if (!isAlerted)
         {
@@ -108,7 +108,7 @@ public class AlertManager : MonoBehaviour
             return;
         }
 
-        if (AlertFadeElapsed < AlertFadeInSeconds)
+        if (!isRespawning && AlertFadeElapsed < AlertFadeInSeconds)
         {
             return;
         }
@@ -130,9 +130,9 @@ public class AlertManager : MonoBehaviour
         ALERTEGENERAAAAAAAAAAAAAAAAAALE();
     }
 
-    private void OnPlayerLost()
+    private void OnPlayerLost(bool isRespawning = false)
     {
         guardThatDetectedThePlayer--;
-        TryStopAlert();
+        TryStopAlert(isRespawning);
     }
 }

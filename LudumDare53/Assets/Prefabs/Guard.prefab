@@ -47,6 +47,18 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Untagged
       objectReference: {fileID: 0}
+    - target: {fileID: 3662067273133764471, guid: eff84e75c2e5cf641bb1414e267b599b, type: 3}
+      propertyPath: m_Drag
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3662067273133764471, guid: eff84e75c2e5cf641bb1414e267b599b, type: 3}
+      propertyPath: m_AngularDrag
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3662067273133764471, guid: eff84e75c2e5cf641bb1414e267b599b, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4188303800831579414, guid: eff84e75c2e5cf641bb1414e267b599b, type: 3}
       propertyPath: m_Controller
       value: 

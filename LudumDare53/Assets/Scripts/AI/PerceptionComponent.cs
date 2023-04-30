@@ -21,7 +21,7 @@ public class PerceptionComponent : MonoBehaviour
     private bool hasPlayerInView = false;
 
     public Action detectedPlayer;
-    public Action lostPlayer;
+    public Action<bool> lostPlayer;
 
     [SerializeField] private bool drawDebug = true;
 
@@ -60,7 +60,7 @@ public class PerceptionComponent : MonoBehaviour
                 hasPlayerInView = false;
 
                 Debug.Log($"{gameObject.name} has lost player");
-                lostPlayer?.Invoke();
+                lostPlayer?.Invoke(false);
             }
         }
         else if (hasPlayerInView)
@@ -95,7 +95,7 @@ public class PerceptionComponent : MonoBehaviour
     public void OnRespawn()
     {
         hasPlayerInView = false;
-        lostPlayer?.Invoke();
+        lostPlayer?.Invoke(true);
     }
 
     public float GetViewRadius()
