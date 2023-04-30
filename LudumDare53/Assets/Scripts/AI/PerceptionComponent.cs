@@ -43,7 +43,7 @@ public class PerceptionComponent : MonoBehaviour
         if (IsInView(ownerTransform, playerTransform))
         {
             RaycastHit hit;
-            LayerMask layerMask = AlertManager.Get.isAlerted ? alertLayerMask : detectionLayerMask;
+            LayerMask layerMask = AlertManager.Get.AlertLevel > 1 ? alertLayerMask : detectionLayerMask;
             bool hasHit = Physics.Raycast(ownerTransform.position, dirToPlayer, out hit, GetViewRadius(), layerMask);
             if (hasHit && hit.transform.gameObject == player)
             {
@@ -73,7 +73,7 @@ public class PerceptionComponent : MonoBehaviour
     private bool IsInView(Transform ownerTransform, Transform playerTransform)
     {
         bool result = false;
-        float distance = Vector2.Distance(playerTransform.position, ownerTransform.position);
+        float distance = Vector3.Distance(playerTransform.position, ownerTransform.position);
         if (distance < closeDetectionRadius)
         {
             result = true;
@@ -81,7 +81,7 @@ public class PerceptionComponent : MonoBehaviour
         else if (distance < GetViewRadius())
         {
             Vector3 dirToPlayer = (playerTransform.position - ownerTransform.position).normalized;
-            float dotResult = Vector3.Dot(playerTransform.forward, dirToPlayer);
+            float dotResult = Vector3.Dot(ownerTransform.forward, dirToPlayer);
             float radAngle = Mathf.Deg2Rad * (GetViewAngle() / 2);
             float cos = Mathf.Cos(radAngle);
             if (dotResult > cos)

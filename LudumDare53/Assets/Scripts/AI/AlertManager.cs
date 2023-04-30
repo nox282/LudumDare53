@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class AlertManager : MonoBehaviour
 {
@@ -21,6 +22,7 @@ public class AlertManager : MonoBehaviour
     private int guardThatDetectedThePlayer = 0;
     private GameObject canvasGO;
     private float AlertFadeElapsed = 0f;
+    public int AlertLevel = 0;
 
     private void Awake()
     {
@@ -69,6 +71,10 @@ public class AlertManager : MonoBehaviour
         {
             AlertFadeElapsed = 0;
         }
+        else 
+        {
+            ChangeAlertLevel(1);
+        }
 
         AlertFadeElapsed += Time.deltaTime;
 
@@ -78,6 +84,7 @@ public class AlertManager : MonoBehaviour
     // Gilbert dans taxi.
     public void ALERTEGENERAAAAAAAAAAAAAAAAAALE()
     {
+        ChangeAlertLevel(2);
         if (isAlerted)
         {
             return;
@@ -114,6 +121,7 @@ public class AlertManager : MonoBehaviour
         }
 
         isAlerted = false;
+        ChangeAlertLevel(0);
         canvasGO.SetActive(isAlerted);
 
         foreach (var guardCharacter in guardCharacters)
@@ -134,5 +142,26 @@ public class AlertManager : MonoBehaviour
     {
         guardThatDetectedThePlayer--;
         TryStopAlert(isRespawning);
+    }
+
+    private void ChangeAlertLevel(int level)
+    {
+        if (AlertLevel == level)
+        {
+            return;
+        }
+        AlertLevel = level;
+
+        if (AlertLevel > 0 && canvasGO.transform.childCount > 0)
+        {
+            Color color = AlertLevel == 1 ? Color.yellow : Color.red;
+            color.a = 0.5f;
+
+            Image image = canvasGO.transform.GetChild(0).GetComponent<Image>();
+            if (image != null)
+            {
+                image.color = color;
+            }
+        }
     }
 }
