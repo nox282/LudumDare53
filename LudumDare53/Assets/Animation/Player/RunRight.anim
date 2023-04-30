@@ -33,6 +33,15 @@ AnimationClip:
     path: Anchor/Sprite
     classID: 212
     script: {fileID: 0}
+  - curve:
+    - time: 0
+      value: {fileID: 21300000, guid: 71495cd6c6b3e7a47bfdb56841397bed, type: 3}
+    - time: 0.65
+      value: {fileID: 21300000, guid: 71495cd6c6b3e7a47bfdb56841397bed, type: 3}
+    attribute: m_Sprite
+    path: Anchor/Shadow
+    classID: 212
+    script: {fileID: 0}
   m_SampleRate: 60
   m_WrapMode: 0
   m_Bounds:
@@ -47,12 +56,21 @@ AnimationClip:
       typeID: 212
       customType: 23
       isPPtrCurve: 1
+    - serializedVersion: 2
+      path: 843625042
+      attribute: 0
+      script: {fileID: 0}
+      typeID: 212
+      customType: 23
+      isPPtrCurve: 1
     pptrCurveMapping:
     - {fileID: 21300000, guid: 2be88aa953cff18438e1d887e78e4aed, type: 3}
     - {fileID: 21300000, guid: e814f8f7d4c21ac4896afc0d3db2db1e, type: 3}
     - {fileID: 21300000, guid: b0fa1726ceee8654f9adb3fd7cfa6360, type: 3}
     - {fileID: 21300000, guid: 523f50c64dad52e40a57c43b02b67614, type: 3}
     - {fileID: 21300000, guid: 523f50c64dad52e40a57c43b02b67614, type: 3}
+    - {fileID: 21300000, guid: 71495cd6c6b3e7a47bfdb56841397bed, type: 3}
+    - {fileID: 21300000, guid: 71495cd6c6b3e7a47bfdb56841397bed, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
