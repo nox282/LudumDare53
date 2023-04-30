@@ -29,5 +29,10 @@ public class GuardCharacter : Character
         {
             BehaviorComponent.enabled = isAIEnabled;
         }
+
+        if (MovementComponent != null)
+        {
+            MovementComponent.enabled = isAIEnabled;
+        }
     }
 }
