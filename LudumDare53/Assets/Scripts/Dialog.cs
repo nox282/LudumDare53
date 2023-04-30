@@ -63,7 +63,12 @@ public class Dialog : MonoBehaviour
 		yield return TypeText(phase.Text, phase.LetterDelay);
 		AudioSource.Stop();
 
-		while(!Input.anyKeyDown)
+		while(!Input.anyKey)
+		{
+			yield return null;
+		}
+
+		while (Input.anyKey)
 		{
 			yield return null;
 		}
@@ -77,6 +82,16 @@ public class Dialog : MonoBehaviour
 			displayedText += c;
 			Textfield.text = displayedText;
 			yield return new WaitForSeconds(delay);
+
+			if(Input.anyKey)
+			{
+				Textfield.text = fullText;
+				while(Input.anyKey)
+				{
+					yield return null;
+				}
+				break;
+			}
 		}
 	}
 }
