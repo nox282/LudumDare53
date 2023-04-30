@@ -5,6 +5,11 @@ using UnityEngine.UI;
 
 public class Dialog : MonoBehaviour
 {
+	public AudioClip StartAudio;
+	public AudioClip StartAudio2;
+	public AudioClip EndAudio;
+	public float LetterDelay = 0.02f;
+
 	public Image LeftImage;
 	public Image LeftImageBG;
 	public Image RightImage;
@@ -14,53 +19,73 @@ public class Dialog : MonoBehaviour
 	public TMPro.TextMeshProUGUI Textfield;
 	public AudioSource AudioSource;
 
-	private IEnumerator coroutine;
-
-	private void Start()
-	{
-		if(CurrentDialog != null)
-		{
-			DisplayDialog(CurrentDialog);
-		}
-	}
-
-	public void DisplayDialog(DialogData data)
+	public IEnumerator DisplayDialog(DialogData data)
 	{
 		CurrentDialog = data;
 
-		if(coroutine != null)
-		{
-			StopCoroutine(coroutine);
-		}
-
-		coroutine = DisplayPhases(data);
-		StartCoroutine(coroutine);
+		yield return DisplayPhases(data);
 	}
 
 	private IEnumerator DisplayPhases(DialogData data)
 	{
 		gameObject.SetActive(true);
 
+		Textfield.text = "";
+
+		LeftImage.enabled = false;
+		RightImage.enabled = false;
+		LeftImageBG.enabled = false;
+		RightImageBG.enabled = false;
+
+		if (StartAudio != null)
+		{
+			AudioSource.clip = StartAudio;
+			AudioSource.Play();
+			yield return new WaitForSeconds(StartAudio.length);
+			AudioSource.Stop();
+		}
+
 		LeftImageBG.color = data.GetSpeaker(DialogData.SpeakerId.Left).Color;
 		RightImageBG.color = data.GetSpeaker(DialogData.SpeakerId.Right).Color;
+
+		LeftImage.sprite = data.GetSpeaker(DialogData.SpeakerId.Left).Display;
+		RightImage.sprite = data.GetSpeaker(DialogData.SpeakerId.Right).Display;
+
+		LeftImageBG.enabled = true;
+		RightImageBG.enabled = true;
+		LeftImage.enabled = true;
+		RightImage.enabled = true;
+
+		if (StartAudio2 != null)
+		{
+			AudioSource.clip = StartAudio2;
+			AudioSource.Play();
+			yield return new WaitForSeconds(StartAudio2.length);
+			AudioSource.Stop();
+		}
 
 		foreach (var phase in data.DialogPhases)
 		{
 			yield return DisplayPhase(data, phase);
 		}
-		gameObject.SetActive(false);
+
+		if(EndAudio != null)
+		{
+			AudioSource.clip = EndAudio;
+			AudioSource.Play();
+			yield return new WaitForSeconds(EndAudio.length);
+			AudioSource.Stop();
+		}
 	}
 
 	private IEnumerator DisplayPhase(DialogData data, DialogData.DialogPhase phase)
 	{
-		LeftImage.sprite = phase.OverrideDisplayLeft != null ? phase.OverrideDisplayLeft : data.GetSpeaker(DialogData.SpeakerId.Left).Display;
-		RightImage.sprite = phase.OverrideDisplayRight != null ? phase.OverrideDisplayRight : data.GetSpeaker(DialogData.SpeakerId.Right).Display;
 		Textfield.text = "";
 		Textfield.color = data.GetSpeaker(phase.SpeakerId).Color;
 
 		AudioSource.clip = data.GetSpeaker(phase.SpeakerId).SpeakingSound;
 		AudioSource.Play();
-		yield return TypeText(phase.Text, phase.LetterDelay);
+		yield return TypeText(phase.Text, LetterDelay);
 		AudioSource.Stop();
 
 		while(!Input.anyKey)
@@ -74,13 +99,15 @@ public class Dialog : MonoBehaviour
 		}
 	}
 
+	private string _displayedText = "";
+
 	private IEnumerator TypeText(string fullText, float delay)
 	{
+		_displayedText = "";
 		foreach (char c in fullText)
 		{
-			string displayedText = Textfield.text;
-			displayedText += c;
-			Textfield.text = displayedText;
+			_displayedText += c;
+			Textfield.text = _displayedText;
 			yield return new WaitForSeconds(delay);
 
 			if(Input.anyKey)
