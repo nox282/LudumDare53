@@ -60,14 +60,18 @@ public class ScreenComponent : MonoBehaviour
     public void Activate()
     {
         PlayerCharacter.Get.transform.position = StartTransform.position;
+
+        for (int i = 0; i < Math.Min(GuardCharacters.Count, originalPositions.Count); i++)
+        {
+            var guardCharacter = GuardCharacters[i];
+            var originalPosition = originalPositions[i];
+            guardCharacter.transform.position = originalPosition;
+        }
+
         CameraSnapComponent.Activate(() =>
         {
-            for (int i = 0; i < Math.Min(GuardCharacters.Count, originalPositions.Count); i++)
+            foreach (var guardCharacter in GuardCharacters)
             {
-                var guardCharacter = GuardCharacters[i];
-                var originalPosition = originalPositions[i];
-                guardCharacter.transform.position = originalPosition;
-
                 guardCharacter.BehaviorComponent.enabled = true;
             }
         });
