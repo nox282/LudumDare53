@@ -16,7 +16,7 @@ public class StampStation : MonoBehaviour
         PlayerCharacter Player = other.GetComponent<PlayerCharacter>();
         if (Player != null)
         {
-            Player.isStamped = true;
+			Player.SetIsStamped(true);
 			_animator.SetTrigger("StampStampStamp");
 		}
     }

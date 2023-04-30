@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class PlayerCharacter : Character
@@ -5,7 +6,9 @@ public class PlayerCharacter : Character
     static public PlayerCharacter Get { get; private set; }
 
     public InputComponent InputComponent;
-    public bool isStamped = false;
+    private bool isStamped = false;
+
+    public Action<bool> stampStateUpdated;
 
     protected override void Awake()
     {
@@ -27,5 +30,16 @@ public class PlayerCharacter : Character
 
             CurrentScreenComponent.Respawn();
         }
+    }
+
+    public void SetIsStamped(bool value)
+    {
+        isStamped = value;
+        stampStateUpdated(value);
+    }
+
+    public bool IsStamped() 
+    {
+        return isStamped;
     }
 }

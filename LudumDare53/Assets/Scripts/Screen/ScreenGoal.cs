@@ -29,7 +29,7 @@ public class ScreenGoal : MonoBehaviour
 
 	private void OnGoalStay(Collider other)
 	{
-		if (NeedStamp && !PlayerCharacter.Get.isStamped)
+		if (NeedStamp && !PlayerCharacter.Get.IsStamped())
 			return;
 
 		if(NextScreenStart != null)
