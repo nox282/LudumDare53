@@ -42,10 +42,10 @@ MonoBehaviour:
   - SpeakerId: 0
     Text: Joey out.
   _leftSpeaker:
-    Display: {fileID: 21300000, guid: 013963afe41fb5f4396350e7e7699116, type: 3}
+    Display: {fileID: 21300000, guid: 0a2a3d8408e97d44b8268c247b90d66b, type: 3}
     SpeakingSound: {fileID: 8300000, guid: 342c5a86455122146ab3ce20a930d2d8, type: 3}
     Color: {r: 0.9333334, g: 0.5137255, b: 0.5137255, a: 1}
   _rightSpeaker:
-    Display: {fileID: 21300000, guid: f5be3bba4d641e245b423ebe0c253277, type: 3}
+    Display: {fileID: 21300000, guid: 93c159e7ea197f24ba614ec86d9621b2, type: 3}
     SpeakingSound: {fileID: 8300000, guid: 7b638fd8ec096064e8ccc4c4b884ec66, type: 3}
     Color: {r: 0.4156863, g: 0.83921576, b: 1, a: 1}

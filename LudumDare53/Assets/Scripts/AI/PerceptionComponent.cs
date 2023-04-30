@@ -28,7 +28,13 @@ public class PerceptionComponent : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
-        player = GameObject.FindWithTag("Player");
+        player = PlayerCharacter.Get.gameObject;
+        AlertManager.Get.OnAlertOn += OnAlerted;
+    }
+
+    private void OnDestroy()
+    {
+        AlertManager.Get.OnAlertOn -= OnAlerted;
     }
 
     // Update is called once per frame
@@ -114,6 +120,11 @@ public class PerceptionComponent : MonoBehaviour
             return viewAngle;
         }
         return AlertManager.Get.isAlerted ? viewAngleInAlertMode : viewAngle;
+    }
+
+    private void OnAlerted()
+    {
+        lastKnownPosition = PlayerCharacter.Get.transform;
     }
 
     private void OnDrawGizmos()

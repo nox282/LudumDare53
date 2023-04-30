@@ -71,7 +71,7 @@ public class AlertManager : MonoBehaviour
         {
             AlertFadeElapsed = 0;
         }
-        else 
+        else
         {
             ChangeAlertLevel(1);
         }
@@ -119,6 +119,8 @@ public class AlertManager : MonoBehaviour
         {
             return;
         }
+
+        guardThatDetectedThePlayer = 0;
 
         isAlerted = false;
         ChangeAlertLevel(0);
