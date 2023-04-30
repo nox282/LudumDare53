@@ -6,7 +6,9 @@ using UnityEngine.UI;
 public class Dialog : MonoBehaviour
 {
 	public Image LeftImage;
+	public Image LeftImageBG;
 	public Image RightImage;
+	public Image RightImageBG;
 
 	public DialogData CurrentDialog;
 	public TMPro.TextMeshProUGUI Textfield;
@@ -39,8 +41,8 @@ public class Dialog : MonoBehaviour
 	{
 		gameObject.SetActive(true);
 
-		LeftImage.color = data.GetSpeaker(DialogData.SpeakerId.Left).Color;
-		RightImage.color = data.GetSpeaker(DialogData.SpeakerId.Right).Color;
+		LeftImageBG.color = data.GetSpeaker(DialogData.SpeakerId.Left).Color;
+		RightImageBG.color = data.GetSpeaker(DialogData.SpeakerId.Right).Color;
 
 		foreach (var phase in data.DialogPhases)
 		{
