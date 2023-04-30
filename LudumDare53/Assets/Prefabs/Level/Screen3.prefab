@@ -2599,11 +2599,6 @@ PrefabInstance:
       propertyPath: NeedStamp
       value: 0
       objectReference: {fileID: 0}
-<<<<<<< HEAD
-    - target: {fileID: 5093952630644983282, guid: cb62e91a0a5b75e46ad875a05edad4ba, type: 3}
-      propertyPath: m_RootOrder
-      value: 4
-=======
     - target: {fileID: 6562510900759576720, guid: cb62e91a0a5b75e46ad875a05edad4ba, type: 3}
       propertyPath: m_Size.x
       value: 2
@@ -2611,7 +2606,13 @@ PrefabInstance:
     - target: {fileID: 6562510900759576720, guid: cb62e91a0a5b75e46ad875a05edad4ba, type: 3}
       propertyPath: m_Size.z
       value: 6
->>>>>>> 330f6a14b7a138b77aafe5e0ecf89ee16a43befd
+    - target: {fileID: 6562510900759576720, guid: cb62e91a0a5b75e46ad875a05edad4ba, type: 3}
+      propertyPath: m_Size.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6562510900759576720, guid: cb62e91a0a5b75e46ad875a05edad4ba, type: 3}
+      propertyPath: m_Size.z
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cb62e91a0a5b75e46ad875a05edad4ba, type: 3}
