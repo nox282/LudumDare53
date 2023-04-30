@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -6,8 +7,12 @@ public class AlertManager : MonoBehaviour
 {
     public static AlertManager Get { get; private set; }
 
+    public Action OnAlertOn;
+    public Action OnAlertOff;
+
     public AlertBehavior AlertBehavior;
     public GameObject CanvasPrefab;
+    public AudioSource AudioSource;
 
     private List<GuardCharacter> guardCharacters = new List<GuardCharacter>();
     public bool isAlerted = false;
@@ -20,6 +25,8 @@ public class AlertManager : MonoBehaviour
 
         canvasGO = Instantiate(CanvasPrefab, transform);
         canvasGO.SetActive(false);
+
+        AudioSource = GetComponent<AudioSource>();
     }
 
     private void OnEnable()
@@ -58,11 +65,14 @@ public class AlertManager : MonoBehaviour
 
         isAlerted = true;
         canvasGO.SetActive(isAlerted);
+        AudioSource.Play();
 
         foreach (var guardCharacter in guardCharacters)
         {
             guardCharacter.BehaviorComponent.SetBehavior(AlertBehavior);
         }
+
+        OnAlertOn?.Invoke();
     }
 
     public void TryStopAlert()
@@ -84,6 +94,8 @@ public class AlertManager : MonoBehaviour
         {
             guardCharacter.BehaviorComponent.SetIdle();
         }
+
+        OnAlertOff?.Invoke();
     }
 
     private void OnPlayerDetected()

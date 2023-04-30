@@ -194,7 +194,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-158728
+  m_Name: pb_Mesh-37070
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -358,7 +358,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-158716
+  m_Name: pb_Mesh-37058
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -583,7 +583,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-158250
+  m_Name: pb_Mesh-36586
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -752,6 +752,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: AlertManager
       objectReference: {fileID: 0}
+    - target: {fileID: 5789812395559999394, guid: dbd7da0f33b9965449796b74a0d8db05, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 96eb25b7be15b0c4695fbe4446caf205, type: 3}
     - target: {fileID: 6770344216369264816, guid: dbd7da0f33b9965449796b74a0d8db05, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -815,7 +819,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-158226
+  m_Name: pb_Mesh-36562
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -979,7 +983,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-158262
+  m_Name: pb_Mesh-36598
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -1143,7 +1147,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-158286
+  m_Name: pb_Mesh-36622
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -1307,7 +1311,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-158274
+  m_Name: pb_Mesh-36610
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -1754,7 +1758,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-158298
+  m_Name: pb_Mesh-36634
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -2299,7 +2303,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-158238
+  m_Name: pb_Mesh-36574
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -2538,13 +2542,70 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7aa96df9fca06dd408751e858fb9b37b, type: 3}
+--- !u!1001 &2002408887
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1002251383447157163, guid: faa760cf1202c9640870273451da7411, type: 3}
+      propertyPath: m_Name
+      value: GameLoopMusicController
+      objectReference: {fileID: 0}
+    - target: {fileID: 4221827186118949481, guid: faa760cf1202c9640870273451da7411, type: 3}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4221827186118949481, guid: faa760cf1202c9640870273451da7411, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4221827186118949481, guid: faa760cf1202c9640870273451da7411, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4221827186118949481, guid: faa760cf1202c9640870273451da7411, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4221827186118949481, guid: faa760cf1202c9640870273451da7411, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4221827186118949481, guid: faa760cf1202c9640870273451da7411, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4221827186118949481, guid: faa760cf1202c9640870273451da7411, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4221827186118949481, guid: faa760cf1202c9640870273451da7411, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4221827186118949481, guid: faa760cf1202c9640870273451da7411, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4221827186118949481, guid: faa760cf1202c9640870273451da7411, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4221827186118949481, guid: faa760cf1202c9640870273451da7411, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: faa760cf1202c9640870273451da7411, type: 3}
 --- !u!43 &2019479020
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-158704
+  m_Name: pb_Mesh-37046
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
