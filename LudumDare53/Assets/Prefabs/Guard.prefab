@@ -77,11 +77,11 @@ PrefabInstance:
       objectReference: {fileID: 9100000, guid: 5233b3c8690e512438b8ab238c634931, type: 2}
     - target: {fileID: 4476823164308643656, guid: eff84e75c2e5cf641bb1414e267b599b, type: 3}
       propertyPath: m_Size.x
-      value: 0.31
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 4476823164308643656, guid: eff84e75c2e5cf641bb1414e267b599b, type: 3}
       propertyPath: m_Size.z
-      value: 0.21
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 6686344268097966425, guid: eff84e75c2e5cf641bb1414e267b599b, type: 3}
       propertyPath: m_Layer
@@ -261,7 +261,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 5651487411994988262}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.1
+  m_Radius: 0.2
   m_Speed: 3.5
   m_Acceleration: 20
   avoidancePriority: 50
