@@ -28,7 +28,6 @@ public class PerceptionComponent : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
-        player = GameObject.FindWithTag("Player");
         AlertManager.Get.OnAlertOn += OnAlerted;
     }
 
@@ -43,7 +42,7 @@ public class PerceptionComponent : MonoBehaviour
         bool savedHasPlayerInView = hasPlayerInView;
         float currentTime = Time.realtimeSinceStartup;
 
-        Transform playerTransform = player.transform;
+        Transform playerTransform = PlayerCharacter.Get.transform;
         Transform ownerTransform = transform;
         Vector3 dirToPlayer = (playerTransform.position - ownerTransform.position).normalized;
         if (IsInView(ownerTransform, playerTransform))
