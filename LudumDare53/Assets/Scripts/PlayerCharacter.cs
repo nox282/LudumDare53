@@ -34,6 +34,12 @@ public class PlayerCharacter : Character
         }
     }
 
+    public override void OnRespawn()
+    {
+        base.OnRespawn();
+        SetIsStamped(false);
+    }
+
     public void SetIsStamped(bool value)
     {
         isStamped = value;
