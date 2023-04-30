@@ -534,7 +534,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-2100
+  m_Name: pb_Mesh-266186
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -698,7 +698,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-2074
+  m_Name: pb_Mesh-266160
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -4150,7 +4150,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-2062
+  m_Name: pb_Mesh-266148
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -4472,6 +4472,17 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!114 &2101669139 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8242848713995252075, guid: faa8928f6bae03c42a5a19a019c54f97, type: 3}
+  m_PrefabInstance: {fileID: 4190411753358247383}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc5f5967440683a459e5f85ad91d36c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1018183800272538560
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4627,6 +4638,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: f5be3bba4d641e245b423ebe0c253277, type: 3}
+    - target: {fileID: 4519556012312124896, guid: 8ab618faa5a2aa84b887eb61ace12a8f, type: 3}
+      propertyPath: DialogWindow
+      value: 
+      objectReference: {fileID: 2101669139}
     - target: {fileID: 4519556012312124896, guid: 8ab618faa5a2aa84b887eb61ace12a8f, type: 3}
       propertyPath: NextSceneComponent
       value: 

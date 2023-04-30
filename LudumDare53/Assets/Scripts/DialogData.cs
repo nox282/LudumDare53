@@ -23,13 +23,8 @@ public class DialogData : ScriptableObject
 	{
 		public SpeakerId SpeakerId;
 
-		public Sprite OverrideDisplayLeft;
-		public Sprite OverrideDisplayRight;
-
-		[TextArea(10, 100)]
+		[TextArea(3, 20)]
 		public string Text;
-
-		public float LetterDelay = 0.1f;
 	}
 
 	public List<DialogPhase> DialogPhases;
