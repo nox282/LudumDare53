@@ -43,7 +43,7 @@ public class PerceptionComponent : MonoBehaviour
         if (IsInView(ownerTransform, playerTransform))
         {
             RaycastHit hit;
-            LayerMask layerMask = AlertManager.Get.isAlerted ? alertLayerMask : detectionLayerMask;
+            LayerMask layerMask = AlertManager.Get.AlertLevel > 1 ? alertLayerMask : detectionLayerMask;
             bool hasHit = Physics.Raycast(ownerTransform.position, dirToPlayer, out hit, GetViewRadius(), layerMask);
             if (hasHit && hit.transform.gameObject == player)
             {

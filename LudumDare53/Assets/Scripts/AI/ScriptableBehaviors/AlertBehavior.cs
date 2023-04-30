@@ -8,6 +8,7 @@ public class AlertBehavior : ScriptableBehavior
 
     private MovementComponent movementComponent;
     private NavMeshAgent navMeshAgent;
+    private PerceptionComponent perceptionComponent = null;
 
     public override void OnEnter(GameObject Owner)
     {
@@ -15,6 +16,7 @@ public class AlertBehavior : ScriptableBehavior
 
         float moveSpeed = PlayerCharacter.Get.MovementComponent.MoveSpeed + MoveSpeedAdvantage;
         navMeshAgent = Owner.GetComponent<NavMeshAgent>();
+        perceptionComponent = Owner.GetComponent<PerceptionComponent>();
 
         if (navMeshAgent != null)
         {
@@ -30,6 +32,6 @@ public class AlertBehavior : ScriptableBehavior
     public override void OnUpdate(float deltaTime, GameObject Owner)
     {
         base.OnUpdate(deltaTime, Owner);
-        navMeshAgent.destination = PlayerCharacter.Get.transform.position;
+        navMeshAgent.destination = perceptionComponent != null ? perceptionComponent.lastKnownPosition.position : PlayerCharacter.Get.transform.position;
     }
 }
