@@ -247,7 +247,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 1994
+  m_VersionIndex: 2003
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -563,7 +563,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 2504
+  m_VersionIndex: 2513
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -910,7 +910,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 1991
+  m_VersionIndex: 2000
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -1173,63 +1173,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8f33ed9bc67564444b62484d79f183d7, type: 3}
---- !u!1001 &2565503833371290566
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 996600804553445190}
-    m_Modifications:
-    - target: {fileID: 8313141544211417583, guid: 20979739496b577459c8fe6fefe9b2db, type: 3}
-      propertyPath: m_Name
-      value: StampMachine
-      objectReference: {fileID: 0}
-    - target: {fileID: 9074149835248493460, guid: 20979739496b577459c8fe6fefe9b2db, type: 3}
-      propertyPath: m_RootOrder
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 9074149835248493460, guid: 20979739496b577459c8fe6fefe9b2db, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -8.14
-      objectReference: {fileID: 0}
-    - target: {fileID: 9074149835248493460, guid: 20979739496b577459c8fe6fefe9b2db, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.29
-      objectReference: {fileID: 0}
-    - target: {fileID: 9074149835248493460, guid: 20979739496b577459c8fe6fefe9b2db, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -2.7199993
-      objectReference: {fileID: 0}
-    - target: {fileID: 9074149835248493460, guid: 20979739496b577459c8fe6fefe9b2db, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9074149835248493460, guid: 20979739496b577459c8fe6fefe9b2db, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9074149835248493460, guid: 20979739496b577459c8fe6fefe9b2db, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9074149835248493460, guid: 20979739496b577459c8fe6fefe9b2db, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9074149835248493460, guid: 20979739496b577459c8fe6fefe9b2db, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9074149835248493460, guid: 20979739496b577459c8fe6fefe9b2db, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9074149835248493460, guid: 20979739496b577459c8fe6fefe9b2db, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 20979739496b577459c8fe6fefe9b2db, type: 3}
 --- !u!1001 &4278923190859155341
 PrefabInstance:
   m_ObjectHideFlags: 0

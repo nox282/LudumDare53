@@ -172,6 +172,7 @@ GameObject:
   - component: {fileID: 3976250442205556681}
   - component: {fileID: 3976250442205556680}
   - component: {fileID: 1258993749528009648}
+  - component: {fileID: 1487729674076749994}
   m_Layer: 5
   m_Name: Minimap
   m_TagString: Untagged
@@ -279,6 +280,18 @@ MonoBehaviour:
   minimapParent: {fileID: 3976250441764586542}
   _zoneColor: {r: 0.3443396, g: 0.9270316, b: 1, a: 1}
   _alertedColor: {r: 1, g: 0.21226418, b: 0.21226418, a: 1}
+--- !u!225 &1487729674076749994
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3976250442205556683}
+  m_Enabled: 1
+  m_Alpha: 0.75
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &3976250442576744391
 GameObject:
   m_ObjectHideFlags: 0
