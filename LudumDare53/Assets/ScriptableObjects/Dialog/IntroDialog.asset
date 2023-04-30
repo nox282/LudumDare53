@@ -12,6 +12,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27889d3343f151a4c923f73c3ef996ff, type: 3}
   m_Name: IntroDialog
   m_EditorClassIdentifier: 
-  LeftImage: {fileID: 0}
-  RightImage: {fileID: 0}
-  Text: 
+  DialogPhases:
+  - SpeakerId: 1
+    OverrideDisplayLeft: {fileID: 0}
+    OverrideDisplayRight: {fileID: 0}
+    Text: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed faucibus tristique
+      lobortis. Vivamus in justo ac quam lobortis varius. Integer tincidunt nulla
+      vel blandit accumsan. Fusce bibendum, justo nec placerat ultricies, ex nibh
+      vestibulum nibh, vel lobortis eros tellus eu velit. ...(press space)
+    LetterDelay: 0.03
+  - SpeakerId: 0
+    OverrideDisplayLeft: {fileID: 0}
+    OverrideDisplayRight: {fileID: 0}
+    Text: Arf arf woof woof bark bark yip yip whimper whine arf arf howl. (press
+      space)
+    LetterDelay: 0.08
+  - SpeakerId: 1
+    OverrideDisplayLeft: {fileID: 0}
+    OverrideDisplayRight: {fileID: 0}
+    Text: 01010011 01101111 01101101 01100101 00100000 01110010 01100001 01101110
+      01100100 01101111 01101101 00100000 01110100 01100101 01111000 01110100 00100000
+      01101001 01101110 00100000 (press space)
+    LetterDelay: 0.03
+  _leftSpeaker:
+    Display: {fileID: 21300000, guid: 013963afe41fb5f4396350e7e7699116, type: 3}
+    SpeakingSound: {fileID: 8300000, guid: 342c5a86455122146ab3ce20a930d2d8, type: 3}
+    Color: {r: 0.9333334, g: 0.5137255, b: 0.5137255, a: 1}
+  _rightSpeaker:
+    Display: {fileID: 21300000, guid: f5be3bba4d641e245b423ebe0c253277, type: 3}
+    SpeakingSound: {fileID: 8300000, guid: 7b638fd8ec096064e8ccc4c4b884ec66, type: 3}
+    Color: {r: 0.4156863, g: 0.83921576, b: 1, a: 1}
