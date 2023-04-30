@@ -216,11 +216,11 @@ MonoBehaviour:
   alertLayerMask:
     serializedVersion: 2
     m_Bits: 65
-  viewRadius: 12
-  viewRadiusInAlertMode: 20
+  viewRadius: 17
+  viewRadiusInAlertMode: 25
   viewAngle: 110
   viewAngleInAlertMode: 240
-  closeDetectionRadius: 2
+  closeDetectionRadius: 7
   lostSightBufferTime: 0.5
   lastKnownPosition: {fileID: 0}
   lastSeen: 0

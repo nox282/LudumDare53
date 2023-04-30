@@ -29,11 +29,6 @@ public class ScreenGoal : MonoBehaviour
     {
         if (NeedStamp && !PlayerCharacter.Get.IsStamped())
         {
-            foreach (var guardCharacter in Screen.GuardCharacters)
-            {
-                guardCharacter.PerceptionComponent.lastKnownPosition = PlayerCharacter.Get.transform;
-            }
-
             AlertManager.Get.ALERTEGENERAAAAAAAAAAAAAAAAAALE();
             return;
         }
