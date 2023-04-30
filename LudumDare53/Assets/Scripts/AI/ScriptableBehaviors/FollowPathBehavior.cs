@@ -4,11 +4,14 @@ using UnityEngine;
 public class FollowPathBehavior : ScriptableBehavior
 {
     [SerializeField] public float MoveSpeed = 1f;
+    public float waitTime = 1f;
 
     MovementComponent movementComponent = null;
     PathComponent pathComponent = null;
 
     Vector3 currentDestination = Vector3.zero;
+
+    float timer = 0f;
 
     public override void OnEnter(GameObject Owner)
     {
@@ -29,9 +32,8 @@ public class FollowPathBehavior : ScriptableBehavior
     {
         base.OnUpdate(deltaTime, Owner);
 
-        if (movementComponent != null && pathComponent != null)
+        if (timer <= 0f && movementComponent != null && pathComponent != null)
         {
-
             if (movementComponent.IsStuck)
             {
                 Owner.transform.position = currentDestination;
@@ -42,7 +44,13 @@ public class FollowPathBehavior : ScriptableBehavior
             if (alreadyAtDestination)
             {
                 currentDestination = GetDestinationAndUpdateNextPoint();
+                movementComponent.Move(Vector3.zero);
+                timer = waitTime;
             }
+        }
+        else 
+        {
+            timer -= deltaTime;
         }
     }
 
