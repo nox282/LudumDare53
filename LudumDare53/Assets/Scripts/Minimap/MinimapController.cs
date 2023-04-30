@@ -10,9 +10,12 @@ public class MinimapController : MonoBehaviour
     [SerializeField] private GameObject enemyPrefab;
     [SerializeField] private GameObject cubePrefab;
     [SerializeField] private GameObject minimapParent;
+    [SerializeField] private Color _zoneColor;
+    [SerializeField] private Color _alertedColor;
 
-    private (MinimapObject, GameObject) objectToFollow;
-    private Dictionary<MinimapObject, GameObject> objects = new Dictionary<MinimapObject, GameObject>();
+    private (MinimapObject, MinimapItem) objectToFollow;
+    private Dictionary<MinimapObject, MinimapItem> objects = new Dictionary<MinimapObject, MinimapItem>();
+    private Dictionary<MinimapObject, PerceptionComponent> perceptionComponents = new Dictionary<MinimapObject, PerceptionComponent>();
     private Coroutine coroutine;
 
     public void Awake()
@@ -37,13 +40,15 @@ public class MinimapController : MonoBehaviour
                 break;
         }
 
+        MinimapItem minimapItem = go.GetComponent<MinimapItem>();
         if (obj.toFollow)
         {
-            objectToFollow = (obj, go);
+            objectToFollow = (obj, minimapItem);
         }
         else
         {
-            objects[obj] = go;
+            objects[obj] = minimapItem;
+            perceptionComponents[obj] = obj.GetComponent<PerceptionComponent>();
         }
     }
 
@@ -57,6 +62,7 @@ public class MinimapController : MonoBehaviour
         else
         {
             objects.Remove(obj);
+            perceptionComponents.Remove(obj);
         }
     }
 
@@ -85,21 +91,41 @@ public class MinimapController : MonoBehaviour
                 objectToFollow.Item2.transform.localEulerAngles = angle;
             }
 
+            AlertManager alertManager = AlertManager.Get;
             foreach (var o in objects)
             {
                 MinimapObject minimapObject = o.Key;
                 Transform minimapPoint = o.Value.transform;
+                Material material = o.Value.coneImage?.material;
 
                 var tempPos = minimapPoint.localPosition;
                 tempPos.x = (o.Key.transform.position.x - followPos.x) * multiplier;
                 tempPos.y = (o.Key.transform.position.z - followPos.z) * multiplier;
                 minimapPoint.localPosition = tempPos;
 
+                perceptionComponents.TryGetValue(o.Key, out PerceptionComponent perception);
+                float perceptionAngle = 0;
+                if (perception != null)
+                {
+                    perceptionAngle = alertManager.isAlerted ? perception.viewAngleInAlertMode : perception.viewAngle;
+                    material.SetFloat("_Angle", perceptionAngle);
+                    material.SetColor("_Color", alertManager.isAlerted ? _alertedColor : _zoneColor);
+
+                    Vector3 scale = Vector3.one;
+                    if (alertManager.isAlerted)
+                    {
+                        // lol
+                        scale.x = 1.42f;
+                        scale.y = 1.42f;
+                    }
+                    minimapPoint.transform.localScale = scale;
+                }
+
                 if (minimapObject.needsRotationUpdate)
                 {
                     Vector3 followRotation = minimapObject.transform.localEulerAngles;
                     Vector3 angle = Vector3.zero;
-                    angle.z = 90 - followRotation.y;
+                    angle.z = 90 - followRotation.y - (perceptionAngle / 2f);
                     minimapPoint.transform.localEulerAngles = angle;
                 }
             }
