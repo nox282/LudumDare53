@@ -57,7 +57,11 @@ public class ScreenComponent : MonoBehaviour
         {
             var guardCharacter = GuardCharacters[i];
             var originalPosition = originalPositions[i];
+
+            // disabling NavMeshAgent so that the transform.position doesn't cause a sweep ??????
+            guardCharacter.NavMeshAgent.enabled = false;
             guardCharacter.transform.position = originalPosition;
+            guardCharacter.NavMeshAgent.enabled = true;
 
             guardCharacter.OnBeforeActivate();
         }
