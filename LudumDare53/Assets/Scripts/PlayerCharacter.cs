@@ -35,7 +35,7 @@ public class PlayerCharacter : Character
     public void SetIsStamped(bool value)
     {
         isStamped = value;
-        stampStateUpdated(value);
+        stampStateUpdated?.Invoke(value);
     }
 
     public bool IsStamped() 
