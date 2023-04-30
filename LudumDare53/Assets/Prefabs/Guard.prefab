@@ -51,6 +51,14 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 5233b3c8690e512438b8ab238c634931, type: 2}
+    - target: {fileID: 4476823164308643656, guid: eff84e75c2e5cf641bb1414e267b599b, type: 3}
+      propertyPath: m_Size.x
+      value: 0.31
+      objectReference: {fileID: 0}
+    - target: {fileID: 4476823164308643656, guid: eff84e75c2e5cf641bb1414e267b599b, type: 3}
+      propertyPath: m_Size.z
+      value: 0.21
+      objectReference: {fileID: 0}
     - target: {fileID: 6686344268097966425, guid: eff84e75c2e5cf641bb1414e267b599b, type: 3}
       propertyPath: m_Layer
       value: 3
@@ -202,3 +210,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CurrentScreenComponent: {fileID: 0}
   MovementComponent: {fileID: 0}
+  SpriteRenderer: {fileID: 0}

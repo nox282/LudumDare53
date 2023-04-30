@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PathComponent : MonoBehaviour
@@ -25,5 +23,10 @@ public class PathComponent : MonoBehaviour
         {
             currentSplineIndex = spline.GetComponent<SplineComponent>().GetNextIndex(currentSplineIndex, loopPath, ref isGoingForward);
         }
+    }
+
+    public void OnRespawn()
+    {
+        currentSplineIndex = 0;
     }
 }

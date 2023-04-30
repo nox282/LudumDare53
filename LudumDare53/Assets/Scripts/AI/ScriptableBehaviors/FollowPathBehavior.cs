@@ -8,6 +8,8 @@ public class FollowPathBehavior : ScriptableBehavior
     MovementComponent movementComponent = null;
     PathComponent pathComponent = null;
 
+    Vector3 currentDestination = Vector3.zero;
+
     public override void OnEnter(GameObject Owner)
     {
         base.OnEnter(Owner);
@@ -19,15 +21,8 @@ public class FollowPathBehavior : ScriptableBehavior
         {
             movementComponent.MoveSpeed = MoveSpeed;
         }
-        if (pathComponent)
-        {
-            Vector3 dest = pathComponent.GetDestination();
-            if (dest != Vector3.zero)
-            {
-                Owner.transform.position = dest;
-                pathComponent.UpdateToNextPoint();
-            }
-        }
+
+        currentDestination = GetDestinationAndUpdateNextPoint();
     }
 
     public override void OnUpdate(float deltaTime, GameObject Owner)
@@ -36,10 +31,17 @@ public class FollowPathBehavior : ScriptableBehavior
 
         if (movementComponent != null && pathComponent != null)
         {
-            bool alreadyAtDestination = movementComponent.MoveTo(pathComponent.GetDestination());
+
+            if (movementComponent.IsStuck)
+            {
+                Owner.transform.position = currentDestination;
+                movementComponent.ResetStuckState();
+            }
+
+            bool alreadyAtDestination = movementComponent.MoveTo(currentDestination);
             if (alreadyAtDestination)
             {
-                pathComponent.UpdateToNextPoint();
+                currentDestination = GetDestinationAndUpdateNextPoint();
             }
         }
     }
@@ -47,5 +49,12 @@ public class FollowPathBehavior : ScriptableBehavior
     public override void OnExit(GameObject Owner)
     {
         base.OnExit(Owner);
+    }
+
+    private Vector3 GetDestinationAndUpdateNextPoint()
+    {
+        var destination = pathComponent.GetDestination();
+        pathComponent.UpdateToNextPoint();
+        return destination;
     }
 }

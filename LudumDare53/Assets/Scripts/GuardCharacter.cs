@@ -14,6 +14,11 @@ public class GuardCharacter : Character
         get => GetComponent<BehaviorComponent>();
     }
 
+    public PathComponent PathComponent
+    {
+        get => GetComponent<PathComponent>();
+    }
+
     protected override void Awake()
     {
         SpriteRenderer = GetComponentInChildren<SpriteRenderer>();
@@ -23,6 +28,7 @@ public class GuardCharacter : Character
     {
         base.OnRespawn();
         PerceptionComponent.OnRespawn();
+        PathComponent.OnRespawn();
     }
 
     public void EnableAI(bool isAIEnabled)

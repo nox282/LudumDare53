@@ -25,10 +25,6 @@ public class Character : MonoBehaviour
 
     }
 
-    private void OnEnable()
-    {
-
-    }
 
     virtual public void RefreshScreenComponent()
     {
