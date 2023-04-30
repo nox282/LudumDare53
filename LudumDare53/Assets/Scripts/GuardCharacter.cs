@@ -21,6 +21,15 @@ public class GuardCharacter : Character
         PathComponent = GetComponent<PathComponent>();
     }
 
+    protected override void Update()
+    {
+        base.Update();
+
+        Animator.SetFloat("speedX", NavMeshAgent.velocity.x);
+        Animator.SetFloat("speedZ", NavMeshAgent.velocity.z);
+        Animator.SetFloat("speed", NavMeshAgent.velocity.magnitude);
+    }
+
     public override void OnRespawn()
     {
         base.OnRespawn();

@@ -14,12 +14,14 @@ public class ScreenComponent : MonoBehaviour
 
     public bool IsFirstScreen = false;
     public Transform FirstStartTransform;
+	public Dialog DialogWindow;
+	public DialogData DialogData;
 
     private List<Vector3> originalPositions = new List<Vector3>();
 
     private Vector3 _respawnPosition;
 
-    private void Start()
+    private IEnumerator Start()
     {
         FindGuardCharacters();
 
@@ -32,7 +34,15 @@ public class ScreenComponent : MonoBehaviour
 
         if (IsFirstScreen)
         {
-            Activate(FirstStartTransform.position);
+			PlayerCharacter.Get.gameObject.SetActive(false);
+
+			if(DialogWindow != null)
+			{
+				yield return DialogWindow.DisplayDialog(DialogData);
+				DialogWindow.gameObject.SetActive(false);
+			}
+			
+			Activate(FirstStartTransform.position);
         }
     }
 
@@ -50,7 +60,8 @@ public class ScreenComponent : MonoBehaviour
     {
         _respawnPosition = spawnPoint;
 
-        PlayerCharacter.Get.OnBeforeActivate();
+		PlayerCharacter.Get.gameObject.SetActive(true);
+		PlayerCharacter.Get.OnBeforeActivate();
         PlayerCharacter.Get.transform.position = spawnPoint;
 
         for (int i = 0; i < Math.Min(GuardCharacters.Count, originalPositions.Count); i++)

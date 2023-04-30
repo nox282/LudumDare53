@@ -21,15 +21,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2203116749938283377, guid: eff84e75c2e5cf641bb1414e267b599b, type: 3}
       propertyPath: m_LocalScale.x
-      value: 4.84
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2203116749938283377, guid: eff84e75c2e5cf641bb1414e267b599b, type: 3}
       propertyPath: m_LocalScale.y
-      value: 4.84
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2203116749938283377, guid: eff84e75c2e5cf641bb1414e267b599b, type: 3}
       propertyPath: m_LocalScale.z
-      value: 4.84
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2203116749938283377, guid: eff84e75c2e5cf641bb1414e267b599b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2203116749938283377, guid: eff84e75c2e5cf641bb1414e267b599b, type: 3}
       propertyPath: m_ConstrainProportionsScale
@@ -59,6 +63,14 @@ PrefabInstance:
       propertyPath: m_CollisionDetection
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3927195752043485055, guid: eff84e75c2e5cf641bb1414e267b599b, type: 3}
+      propertyPath: m_Volume
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3927195752043485055, guid: eff84e75c2e5cf641bb1414e267b599b, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 444f6cfc23ee2a04086ce62f13167973, type: 3}
     - target: {fileID: 4188303800831579414, guid: eff84e75c2e5cf641bb1414e267b599b, type: 3}
       propertyPath: m_Controller
       value: 
@@ -100,12 +112,28 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6881558097052588560, guid: eff84e75c2e5cf641bb1414e267b599b, type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6881558097052588560, guid: eff84e75c2e5cf641bb1414e267b599b, type: 3}
       propertyPath: m_MaskInteraction
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8286358374727849302, guid: eff84e75c2e5cf641bb1414e267b599b, type: 3}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8286358374727849302, guid: eff84e75c2e5cf641bb1414e267b599b, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8286358374727849302, guid: eff84e75c2e5cf641bb1414e267b599b, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8286358374727849302, guid: eff84e75c2e5cf641bb1414e267b599b, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8286358374727849302, guid: eff84e75c2e5cf641bb1414e267b599b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -146,6 +174,22 @@ PrefabInstance:
     - target: {fileID: 8286358374727849302, guid: eff84e75c2e5cf641bb1414e267b599b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9205381626976097826, guid: eff84e75c2e5cf641bb1414e267b599b, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9205381626976097826, guid: eff84e75c2e5cf641bb1414e267b599b, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9205381626976097826, guid: eff84e75c2e5cf641bb1414e267b599b, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9205381626976097826, guid: eff84e75c2e5cf641bb1414e267b599b, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eff84e75c2e5cf641bb1414e267b599b, type: 3}
@@ -243,7 +287,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Rigidbody: {fileID: 0}
-  FootstepAudio: {fileID: 0}
+  FootstepAudio: {fileID: 6107398375216020021}
   Animator: {fileID: 0}
   CurrentScreenComponent: {fileID: 0}
   NavMeshAgent: {fileID: 0}
@@ -251,3 +295,8 @@ MonoBehaviour:
   PerceptionComponent: {fileID: 0}
   BehaviorComponent: {fileID: 0}
   PathComponent: {fileID: 0}
+--- !u!82 &6107398375216020021 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 3927195752043485055, guid: eff84e75c2e5cf641bb1414e267b599b, type: 3}
+  m_PrefabInstance: {fileID: 7080192755476327754}
+  m_PrefabAsset: {fileID: 0}
