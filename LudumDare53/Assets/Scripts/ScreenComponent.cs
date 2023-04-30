@@ -15,8 +15,6 @@ public class ScreenComponent : MonoBehaviour
     public bool IsFirstScreen = false;
     public Transform FirstStartTransform;
 
-    public UnityEvent OnGoal;
-
     private List<Vector3> originalPositions = new List<Vector3>();
 
 	private Vector3 _respawnPosition;
@@ -85,13 +83,7 @@ public class ScreenComponent : MonoBehaviour
         if (nextScreen.Screen != null)
         {
 			nextScreen.Screen.Activate(nextScreen.transform.position);
-        }
-        else if (!PlayerCharacter.Get.isStamped)
-        {
-            return;
-        }
-
-        OnGoal.Invoke();
+        }        
     }
 
     private void FindGuardCharacters()

@@ -1,9 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class ScreenGoal : MonoBehaviour
 {
+	public bool NeedStamp;
+	public UnityEvent OnGoal;
+
 	public ScreenStart NextScreenStart;
 	public ScreenComponent Screen;
 	private TriggerComponent _goal;
@@ -25,6 +29,10 @@ public class ScreenGoal : MonoBehaviour
 
 	private void OnGoalStay(Collider other)
 	{
+		if (NeedStamp && !PlayerCharacter.Get.isStamped)
+			return;
+
 		Screen.GoalReached(NextScreenStart);
+		OnGoal.Invoke();
 	}
 }
