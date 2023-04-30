@@ -41,7 +41,7 @@ public class ScreenComponent : MonoBehaviour
         PlayerCharacter.Get.OnRespawn();
         foreach (var guardCharacter in GuardCharacters)
         {
-            guardCharacter.PerceptionComponent.OnRespawn();
+            guardCharacter.OnRespawn();
         }
         Activate(_respawnPosition);
     }
@@ -50,6 +50,7 @@ public class ScreenComponent : MonoBehaviour
     {
         _respawnPosition = spawnPoint;
 
+        PlayerCharacter.Get.OnBeforeActivate();
         PlayerCharacter.Get.transform.position = spawnPoint;
 
         for (int i = 0; i < Math.Min(GuardCharacters.Count, originalPositions.Count); i++)
@@ -57,6 +58,8 @@ public class ScreenComponent : MonoBehaviour
             var guardCharacter = GuardCharacters[i];
             var originalPosition = originalPositions[i];
             guardCharacter.transform.position = originalPosition;
+
+            guardCharacter.OnBeforeActivate();
         }
 
         CameraSnapComponent.Activate(() =>
@@ -64,7 +67,10 @@ public class ScreenComponent : MonoBehaviour
             foreach (var guardCharacter in GuardCharacters)
             {
                 guardCharacter.gameObject.SetActive(true);
+                guardCharacter.OnAfterActivate();
             }
+
+            PlayerCharacter.Get.OnAfterActivate();
         });
     }
 

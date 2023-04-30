@@ -4,6 +4,7 @@ public class Character : MonoBehaviour
 {
     public ScreenComponent CurrentScreenComponent;
     public MovementComponent MovementComponent;
+    public AudioSource FootstepAudio;
 
     virtual protected void Awake()
     {
@@ -25,6 +26,15 @@ public class Character : MonoBehaviour
 
     }
 
+    public virtual void OnBeforeActivate()
+    {
+
+    }
+
+    public virtual void OnAfterActivate()
+    {
+
+    }
 
     virtual public void RefreshScreenComponent()
     {
@@ -45,5 +55,10 @@ public class Character : MonoBehaviour
                 break;
             }
         }
+    }
+
+    public void PlayFootstepEvent()
+    {
+        FootstepAudio.Play();
     }
 }

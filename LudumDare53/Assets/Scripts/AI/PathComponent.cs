@@ -25,7 +25,7 @@ public class PathComponent : MonoBehaviour
         }
     }
 
-    public void OnRespawn()
+    public void ResetPathOrder()
     {
         currentSplineIndex = 0;
     }
