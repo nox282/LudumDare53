@@ -89,6 +89,10 @@ public class ScreenComponent : MonoBehaviour
         {
             NextSceneComponent.Activate();
         }
+        else if (!PlayerCharacter.Get.isStamped)
+        {
+            return;
+        }
 
         OnGoal.Invoke();
     }

@@ -5,6 +5,7 @@ public class PlayerCharacter : Character
     static public PlayerCharacter Get { get; private set; }
 
     public InputComponent InputComponent;
+    public bool isStamped = false;
 
     protected override void Awake()
     {
