@@ -19,6 +19,16 @@ public class MovementComponent : MonoBehaviour
         Animator = GetComponent<Animator>();
     }
 
+    private void OnEnable()
+    {
+        InputVelocity = Vector3.zero;
+    }
+
+    private void OnDisable()
+    {
+        Rigidbody.velocity = Vector3.zero;
+    }
+
     private void FixedUpdate()
     {
         Rigidbody.velocity = InputVelocity;

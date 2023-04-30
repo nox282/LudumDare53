@@ -17,7 +17,7 @@ public class ScreenComponent : MonoBehaviour
 
     private List<Vector3> originalPositions = new List<Vector3>();
 
-	private Vector3 _respawnPosition;
+    private Vector3 _respawnPosition;
 
     private void Start()
     {
@@ -27,7 +27,8 @@ public class ScreenComponent : MonoBehaviour
         foreach (var guardCharacter in GuardCharacters)
         {
             originalPositions.Add(guardCharacter.transform.position);
-            guardCharacter.BehaviorComponent.enabled = false;
+            guardCharacter.EnableAI(false);
+
         }
 
         if (IsFirstScreen)
@@ -48,9 +49,9 @@ public class ScreenComponent : MonoBehaviour
 
     public void Activate(Vector3 spawnPoint)
     {
-		_respawnPosition = spawnPoint;
+        _respawnPosition = spawnPoint;
 
-		PlayerCharacter.Get.transform.position = spawnPoint;
+        PlayerCharacter.Get.transform.position = spawnPoint;
 
         for (int i = 0; i < Math.Min(GuardCharacters.Count, originalPositions.Count); i++)
         {
@@ -63,7 +64,7 @@ public class ScreenComponent : MonoBehaviour
         {
             foreach (var guardCharacter in GuardCharacters)
             {
-                guardCharacter.BehaviorComponent.enabled = true;
+                guardCharacter.EnableAI(true);
             }
         });
     }
@@ -77,18 +78,18 @@ public class ScreenComponent : MonoBehaviour
 
         foreach (var guardCharacter in GuardCharacters)
         {
-            guardCharacter.BehaviorComponent.enabled = false;
+            guardCharacter.EnableAI(false);
         }
 
         if (nextScreen != null)
         {
-			nextScreen.Screen.Activate(nextScreen.transform.position);
-        }        
+            nextScreen.Screen.Activate(nextScreen.transform.position);
+        }
     }
 
     private void FindGuardCharacters()
     {
-        Collider[] colliders = Physics.OverlapBox(Box.center, Box.size);
+        Collider[] colliders = Physics.OverlapBox(Box.bounds.center, Box.bounds.extents);
 
         foreach (Collider collider in colliders)
         {
