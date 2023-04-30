@@ -14,10 +14,13 @@ public class AlertManager : MonoBehaviour
     public GameObject CanvasPrefab;
     public AudioSource AudioSource;
 
+    public float AlertFadeInSeconds = 3f;
+
     private List<GuardCharacter> guardCharacters = new List<GuardCharacter>();
     public bool isAlerted = false;
     private int guardThatDetectedThePlayer = 0;
     private GameObject canvasGO;
+    private float AlertFadeElapsed = 0f;
 
     private void Awake()
     {
@@ -55,6 +58,23 @@ public class AlertManager : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        if (!isAlerted)
+        {
+            return;
+        }
+
+        if (guardThatDetectedThePlayer > 0)
+        {
+            AlertFadeElapsed = 0;
+        }
+
+        AlertFadeElapsed += Time.deltaTime;
+
+        TryStopAlert();
+    }
+
     // Gilbert dans taxi.
     public void ALERTEGENERAAAAAAAAAAAAAAAAAALE()
     {
@@ -63,6 +83,7 @@ public class AlertManager : MonoBehaviour
             return;
         }
 
+        AlertFadeElapsed = 0f;
         isAlerted = true;
         canvasGO.SetActive(isAlerted);
         AudioSource.Play();
@@ -83,6 +104,11 @@ public class AlertManager : MonoBehaviour
         }
 
         if (guardThatDetectedThePlayer > 0)
+        {
+            return;
+        }
+
+        if (AlertFadeElapsed < AlertFadeInSeconds)
         {
             return;
         }

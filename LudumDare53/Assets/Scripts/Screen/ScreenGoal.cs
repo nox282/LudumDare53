@@ -5,38 +5,41 @@ using UnityEngine.Events;
 
 public class ScreenGoal : MonoBehaviour
 {
-	public bool NeedStamp;
-	public UnityEvent OnGoal;
+    public bool NeedStamp;
+    public UnityEvent OnGoal;
 
-	public ScreenStart NextScreenStart;
-	public ScreenComponent Screen;
-	private TriggerComponent _goal;
+    public ScreenStart NextScreenStart;
+    public ScreenComponent Screen;
+    private TriggerComponent _goal;
 
-	private void Awake()
-	{
-		_goal = GetComponent<TriggerComponent>();
-	}
+    private void Awake()
+    {
+        _goal = GetComponent<TriggerComponent>();
+    }
 
-	private void OnEnable()
-	{
-		_goal.OnTriggerStayEvent += OnGoalStay;
-	}
+    private void OnEnable()
+    {
+        _goal.OnTriggerStayEvent += OnGoalStay;
+    }
 
-	private void OnDisable()
-	{
-		_goal.OnTriggerStayEvent -= OnGoalStay;
-	}
+    private void OnDisable()
+    {
+        _goal.OnTriggerStayEvent -= OnGoalStay;
+    }
 
-	private void OnGoalStay(Collider other)
-	{
-		if (NeedStamp && !PlayerCharacter.Get.isStamped)
-			return;
+    private void OnGoalStay(Collider other)
+    {
+        if (NeedStamp && !PlayerCharacter.Get.isStamped)
+        {
+            AlertManager.Get.ALERTEGENERAAAAAAAAAAAAAAAAAALE();
+            return;
+        }
 
-		if(NextScreenStart != null)
-		{
-			Screen.GoalReached(NextScreenStart);
-		}
+        if (NextScreenStart != null)
+        {
+            Screen.GoalReached(NextScreenStart);
+        }
 
-		OnGoal.Invoke();
-	}
+        OnGoal.Invoke();
+    }
 }
