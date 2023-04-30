@@ -8,17 +8,16 @@ public class SplineComponent : MonoBehaviour
 
     private Transform[] points;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        int childCount = transform.childCount;
-        points = new Transform[childCount];
-        for (int i = 0; i < childCount; i++)
-        {
-            points[i] = transform.GetChild(i);
-        }
-    }
-
+	private void Awake()
+	{
+		int childCount = transform.childCount;
+		points = new Transform[childCount];
+		for (int i = 0; i < childCount; i++)
+		{
+			points[i] = transform.GetChild(i);
+		}
+	}
+	
     public Vector3 GetPointPosition(int index)
     {
         Vector3 result = Vector3.zero;
