@@ -62,18 +62,18 @@ PrefabInstance:
     - target: {fileID: 6881558097052588560, guid: eff84e75c2e5cf641bb1414e267b599b, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 376808cea80014549ab93e7722eb7094, type: 3}
+      objectReference: {fileID: 21300000, guid: f5be3bba4d641e245b423ebe0c253277, type: 3}
     - target: {fileID: 6881558097052588560, guid: eff84e75c2e5cf641bb1414e267b599b, type: 3}
       propertyPath: m_Color.b
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6881558097052588560, guid: eff84e75c2e5cf641bb1414e267b599b, type: 3}
       propertyPath: m_Color.g
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6881558097052588560, guid: eff84e75c2e5cf641bb1414e267b599b, type: 3}
       propertyPath: m_Color.r
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6881558097052588560, guid: eff84e75c2e5cf641bb1414e267b599b, type: 3}
       propertyPath: m_DrawMode
@@ -152,8 +152,8 @@ MonoBehaviour:
   alertLayerMask:
     serializedVersion: 2
     m_Bits: 65
-  viewRadius: 7
-  viewRadiusInAlertMode: 10
+  viewRadius: 12
+  viewRadiusInAlertMode: 20
   viewAngle: 110
   viewAngleInAlertMode: 240
   closeDetectionRadius: 2
