@@ -6,11 +6,14 @@ public class FollowPathBehavior : ScriptableBehavior
 {
     public float MoveSpeed = 1f;
     public float AcceptableRadius = 1f;
+    public float WaitTime = 1f;
 
     NavMeshAgent NavMeshAgent;
     PathComponent pathComponent = null;
 
     Vector3 currentDestination = Vector3.zero;
+
+    float timer = 0f;
 
     public override void OnEnter(GameObject Owner)
     {
@@ -31,13 +34,18 @@ public class FollowPathBehavior : ScriptableBehavior
     {
         base.OnUpdate(deltaTime, Owner);
 
-        if (NavMeshAgent != null && pathComponent != null)
+        if (timer <= 0f && NavMeshAgent != null && pathComponent != null)
         {
             NavMeshAgent.destination = currentDestination;
             if ((Owner.transform.position - currentDestination).sqrMagnitude < AcceptableRadius * AcceptableRadius)
             {
                 currentDestination = GetDestinationAndUpdateNextPoint();
+                timer = WaitTime;
             }
+        }
+        else
+        {
+            timer -= deltaTime;
         }
     }
 
