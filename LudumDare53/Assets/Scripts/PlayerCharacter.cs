@@ -5,6 +5,7 @@ public class PlayerCharacter : Character
 {
     static public PlayerCharacter Get { get; private set; }
 
+    public MovementComponent MovementComponent;
     public InputComponent InputComponent;
     private bool isStamped = false;
 
@@ -16,6 +17,7 @@ public class PlayerCharacter : Character
         Get = this;
 
         InputComponent = GetComponent<InputComponent>();
+        MovementComponent = GetComponent<MovementComponent>();
     }
 
     private void OnCollisionStay(Collision other)
@@ -38,7 +40,7 @@ public class PlayerCharacter : Character
         stampStateUpdated?.Invoke(value);
     }
 
-    public bool IsStamped() 
+    public bool IsStamped()
     {
         return isStamped;
     }

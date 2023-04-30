@@ -2,7 +2,12 @@ using UnityEngine;
 
 public class InputComponent : MonoBehaviour
 {
-    [SerializeField] private MovementComponent movementComponent;
+    public MovementComponent MovementComponent;
+
+    private void Awake()
+    {
+        MovementComponent = GetComponent<MovementComponent>();
+    }
 
     private void Update()
     {
@@ -14,6 +19,6 @@ public class InputComponent : MonoBehaviour
         Vector3 direction = new Vector3(horizontal, 0f, vertical).normalized;
 
         // Send direction vector to MovementComponent for movement
-        movementComponent.Move(direction);
+        MovementComponent.Move(direction);
     }
 }

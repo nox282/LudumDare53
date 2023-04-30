@@ -32,7 +32,7 @@ public class AlertManager : MonoBehaviour
         AudioSource = GetComponent<AudioSource>();
     }
 
-    private void OnEnable()
+    private void Start()
     {
         guardCharacters = FindObjectsOfType<GuardCharacter>().ToList();
 
@@ -46,7 +46,7 @@ public class AlertManager : MonoBehaviour
         }
     }
 
-    private void OnDisable()
+    private void OnDestroy()
     {
         foreach (var guardCharacter in guardCharacters)
         {

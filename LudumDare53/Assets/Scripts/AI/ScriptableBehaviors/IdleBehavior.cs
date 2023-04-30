@@ -1,24 +1,26 @@
 using UnityEngine;
+using UnityEngine.AI;
 
 [CreateAssetMenu(fileName = "IdleBehavior", menuName = "Custom/IdleBehavior")]
 public class IdleBehavior : ScriptableBehavior
 {
     [SerializeField] public float IdleMoveSpeed = 1f;
+    [SerializeField] public float WanderRadius = 50f;
     [SerializeField] public float TimeBeforeNewDirectionIsPickedInSeconds = 5f;
 
-    MovementComponent movementComponent = null;
-    Vector3 direction = Vector3.zero;
+    NavMeshAgent NavMeshAgent = null;
+    Vector3 currentDestination;
     float nextDirectionPickTimestamp = float.MinValue;
 
     public override void OnEnter(GameObject Owner)
     {
         base.OnEnter(Owner);
 
-        movementComponent = Owner.GetComponent<MovementComponent>();
+        NavMeshAgent = Owner.GetComponent<NavMeshAgent>();
 
-        if (movementComponent != null)
+        if (NavMeshAgent != null)
         {
-            movementComponent.MoveSpeed = IdleMoveSpeed;
+            NavMeshAgent.speed = IdleMoveSpeed;
         }
     }
 
@@ -28,13 +30,13 @@ public class IdleBehavior : ScriptableBehavior
 
         if (Time.time > nextDirectionPickTimestamp)
         {
-            PickRandomDirection();
+            currentDestination = GetRandomPositionAroundOwner(Owner);
             nextDirectionPickTimestamp = Time.time + TimeBeforeNewDirectionIsPickedInSeconds;
         }
 
-        if (movementComponent != null)
+        if (NavMeshAgent != null)
         {
-            movementComponent.Move(direction);
+            NavMeshAgent.destination = currentDestination;
         }
     }
 
@@ -43,8 +45,8 @@ public class IdleBehavior : ScriptableBehavior
         base.OnExit(Owner);
     }
 
-    private void PickRandomDirection()
+    private Vector3 GetRandomPositionAroundOwner(GameObject Owner)
     {
-        direction = Random.onUnitSphere;
+        return Owner.transform.position + Random.onUnitSphere * WanderRadius;
     }
 }

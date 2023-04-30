@@ -1,32 +1,30 @@
 using UnityEngine;
+using UnityEngine.AI;
 
 public class GuardCharacter : Character
 {
+    public NavMeshAgent NavMeshAgent;
     public SpriteRenderer SpriteRenderer;
 
-    public PerceptionComponent PerceptionComponent
-    {
-        get => GetComponent<PerceptionComponent>();
-    }
-
-    public BehaviorComponent BehaviorComponent
-    {
-        get => GetComponent<BehaviorComponent>();
-    }
-
-    public PathComponent PathComponent
-    {
-        get => GetComponent<PathComponent>();
-    }
+    public PerceptionComponent PerceptionComponent;
+    public BehaviorComponent BehaviorComponent;
+    public PathComponent PathComponent;
 
     protected override void Awake()
     {
+        base.Awake();
+
         SpriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        NavMeshAgent = GetComponent<NavMeshAgent>();
+        PerceptionComponent = GetComponent<PerceptionComponent>();
+        BehaviorComponent = GetComponent<BehaviorComponent>();
+        PathComponent = GetComponent<PathComponent>();
     }
 
     public override void OnRespawn()
     {
         base.OnRespawn();
+
         PerceptionComponent.OnRespawn();
         PathComponent.ResetPathOrder();
     }
@@ -34,6 +32,7 @@ public class GuardCharacter : Character
     public override void OnBeforeActivate()
     {
         base.OnBeforeActivate();
+
         PathComponent.ResetPathOrder();
         BehaviorComponent.SetIdle();
     }
@@ -50,9 +49,9 @@ public class GuardCharacter : Character
             BehaviorComponent.enabled = isAIEnabled;
         }
 
-        if (MovementComponent != null)
+        if (NavMeshAgent != null)
         {
-            MovementComponent.enabled = isAIEnabled;
+            NavMeshAgent.enabled = isAIEnabled;
         }
 
         SpriteRenderer.enabled = isAIEnabled;

@@ -8,16 +8,16 @@ public class SplineComponent : MonoBehaviour
 
     private Transform[] points;
 
-	private void Awake()
-	{
-		int childCount = transform.childCount;
-		points = new Transform[childCount];
-		for (int i = 0; i < childCount; i++)
-		{
-			points[i] = transform.GetChild(i);
-		}
-	}
-	
+    private void Awake()
+    {
+        int childCount = transform.childCount;
+        points = new Transform[childCount];
+        for (int i = 0; i < childCount; i++)
+        {
+            points[i] = transform.GetChild(i);
+        }
+    }
+
     public Vector3 GetPointPosition(int index)
     {
         Vector3 result = Vector3.zero;
@@ -37,7 +37,7 @@ public class SplineComponent : MonoBehaviour
             {
                 nextIndex = isGoingForward ? 0 : points.Length - 1;
             }
-            else 
+            else
             {
                 isGoingForward = !isGoingForward;
                 nextIndex = isGoingForward ? index + 1 : index - 1;
@@ -48,6 +48,23 @@ public class SplineComponent : MonoBehaviour
     private bool IsValidIndex(int index)
     {
         return index >= 0 && index < points.Length;
+    }
+
+    public int FindClosestPointIndex(Vector3 Location)
+    {
+        float minDistance = float.MaxValue;
+        int selectedIndex = -1;
+        for (int i = 0; i < points.Length; i++)
+        {
+            float sqrDistance = (points[i].position - Location).sqrMagnitude;
+            if (sqrDistance < minDistance)
+            {
+                selectedIndex = i;
+                minDistance = sqrDistance;
+            }
+        }
+
+        return selectedIndex;
     }
 
     private void OnDrawGizmos()
@@ -64,7 +81,7 @@ public class SplineComponent : MonoBehaviour
             Gizmos.color = Color.gray;
             for (int i = 1; i < childCount; i++)
             {
-                Gizmos.DrawLine(debugPoints[i-1].position, debugPoints[i].position);
+                Gizmos.DrawLine(debugPoints[i - 1].position, debugPoints[i].position);
             }
             Gizmos.color = Color.red;
             if (childCount > 1)

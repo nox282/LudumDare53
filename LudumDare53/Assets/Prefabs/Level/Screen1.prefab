@@ -33,7 +33,7 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 996600804553445190}
-  m_RootOrder: 6
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &155966424
 MonoBehaviour:
@@ -349,7 +349,7 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 996600804553445190}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &658976190
 MonoBehaviour:
@@ -696,7 +696,7 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 996600804553445190}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1257636771
 MonoBehaviour:
@@ -1103,11 +1103,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2654549049194902326, guid: 37ba26e8560995446b1c2dd97dffbaa5, type: 3}
   m_PrefabInstance: {fileID: 1018183800142276700}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &7130499285170531640 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7842402576406250852, guid: 37ba26e8560995446b1c2dd97dffbaa5, type: 3}
+--- !u!114 &3978499763338691653 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: -5109570510894732263, guid: 37ba26e8560995446b1c2dd97dffbaa5, type: 3}
   m_PrefabInstance: {fileID: 1018183800142276700}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a660a9017475f314d95a411cbd55559f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1018183800956454765
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1118,7 +1124,7 @@ PrefabInstance:
     - target: {fileID: -7381270635312674532, guid: 8f33ed9bc67564444b62484d79f183d7, type: 3}
       propertyPath: spline
       value: 
-      objectReference: {fileID: 7130499285170531640}
+      objectReference: {fileID: 3978499763338691653}
     - target: {fileID: 1206659884633389084, guid: 8f33ed9bc67564444b62484d79f183d7, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -1251,6 +1257,10 @@ PrefabInstance:
     - target: {fileID: 3942174552260446414, guid: cb62e91a0a5b75e46ad875a05edad4ba, type: 3}
       propertyPath: m_Name
       value: Screen1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5093952630644983282, guid: cb62e91a0a5b75e46ad875a05edad4ba, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cb62e91a0a5b75e46ad875a05edad4ba, type: 3}

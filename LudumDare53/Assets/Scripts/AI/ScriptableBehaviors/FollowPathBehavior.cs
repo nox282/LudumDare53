@@ -1,11 +1,13 @@
 using UnityEngine;
+using UnityEngine.AI;
 
 [CreateAssetMenu(fileName = "FollowPathBehavior", menuName = "Custom/FollowPathBehavior")]
 public class FollowPathBehavior : ScriptableBehavior
 {
-    [SerializeField] public float MoveSpeed = 1f;
+    public float MoveSpeed = 1f;
+    public float AcceptableRadius = 1f;
 
-    MovementComponent movementComponent = null;
+    NavMeshAgent NavMeshAgent;
     PathComponent pathComponent = null;
 
     Vector3 currentDestination = Vector3.zero;
@@ -14,32 +16,25 @@ public class FollowPathBehavior : ScriptableBehavior
     {
         base.OnEnter(Owner);
 
-        movementComponent = Owner.GetComponent<MovementComponent>();
+        NavMeshAgent = Owner.GetComponent<NavMeshAgent>();
         pathComponent = Owner.GetComponent<PathComponent>();
 
-        if (movementComponent != null)
+        if (NavMeshAgent != null)
         {
-            movementComponent.MoveSpeed = MoveSpeed;
+            NavMeshAgent.speed = MoveSpeed;
         }
 
-        currentDestination = GetDestinationAndUpdateNextPoint();
+        currentDestination = pathComponent.FindAndSetClosestPoint(Owner.transform.position);
     }
 
     public override void OnUpdate(float deltaTime, GameObject Owner)
     {
         base.OnUpdate(deltaTime, Owner);
 
-        if (movementComponent != null && pathComponent != null)
+        if (NavMeshAgent != null && pathComponent != null)
         {
-
-            if (movementComponent.IsStuck)
-            {
-                Owner.transform.position = currentDestination;
-                movementComponent.ResetStuckState();
-            }
-
-            bool alreadyAtDestination = movementComponent.MoveTo(currentDestination);
-            if (alreadyAtDestination)
+            NavMeshAgent.destination = currentDestination;
+            if ((Owner.transform.position - currentDestination).sqrMagnitude < AcceptableRadius * AcceptableRadius)
             {
                 currentDestination = GetDestinationAndUpdateNextPoint();
             }

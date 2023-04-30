@@ -220,7 +220,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb8f5dc158de7a14cb7bd44295dbe655, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementComponent: {fileID: 5047534431899205606}
+  MovementComponent: {fileID: 0}
 --- !u!114 &1349958143052927738
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -252,15 +252,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b883cd046f989174fa5b6500db22eaa6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Rigidbody: {fileID: 0}
+  FootstepAudio: {fileID: 3137697815945398365}
+  Animator: {fileID: 0}
   CurrentScreenComponent: {fileID: 0}
   MovementComponent: {fileID: 0}
-  FootstepAudio: {fileID: 3137697815945398365}
   InputComponent: {fileID: 0}
-  isStamped: 0
---- !u!114 &5047534431899205606 stripped
+--- !u!114 &6769250030960083884
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6559235442778038468, guid: eff84e75c2e5cf641bb1414e267b599b, type: 3}
-  m_PrefabInstance: {fileID: 2092876611849838370}
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3541126900215725198}
   m_Enabled: 1
@@ -268,6 +270,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32dc34aaf5d9aa7428cd97050fff1fe9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Rigidbody: {fileID: 3447825442280632405}
+  MoveSpeed: 10
+  Y: 2.1
 --- !u!4 &7118908851094096128 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9205381626976097826, guid: eff84e75c2e5cf641bb1414e267b599b, type: 3}

@@ -2,13 +2,15 @@ using UnityEngine;
 
 public class Character : MonoBehaviour
 {
-    public ScreenComponent CurrentScreenComponent;
-    public MovementComponent MovementComponent;
+    public Rigidbody Rigidbody;
     public AudioSource FootstepAudio;
+    public Animator Animator;
+    public ScreenComponent CurrentScreenComponent;
 
     virtual protected void Awake()
     {
-        MovementComponent = GetComponent<MovementComponent>();
+        Animator = GetComponent<Animator>();
+        Rigidbody = GetComponent<Rigidbody>();
     }
 
     virtual protected void Start()
@@ -19,6 +21,11 @@ public class Character : MonoBehaviour
     virtual protected void Update()
     {
         RefreshScreenComponent();
+
+        // Update animation properties
+        Animator.SetFloat("speedX", Rigidbody.velocity.x);
+        Animator.SetFloat("speedZ", Rigidbody.velocity.z);
+        Animator.SetFloat("speed", Rigidbody.velocity.sqrMagnitude);
     }
 
     public virtual void OnRespawn()
