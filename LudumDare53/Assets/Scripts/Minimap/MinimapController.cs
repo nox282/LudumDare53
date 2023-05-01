@@ -35,9 +35,14 @@ public class MinimapController : MonoBehaviour
             case MinimapObjectType.ENEMY:
                 go = GameObject.Instantiate(enemyPrefab, minimapParent.transform);
                 break;
-            case MinimapObjectType.CUBE:
-                go = GameObject.Instantiate(cubePrefab, minimapParent.transform);
-                break;
+                //case MinimapObjectType.CUBE:
+                //    go = GameObject.Instantiate(cubePrefab, minimapParent.transform);
+                // break;
+        }
+
+        if (go == null)
+        {
+            return;
         }
 
         MinimapItem minimapItem = go.GetComponent<MinimapItem>();
@@ -86,7 +91,7 @@ public class MinimapController : MonoBehaviour
                 objectToFollow.Item2.transform.localPosition = Vector3.zero;
 
                 Vector3 followRotation = objectToFollow.Item1.gameObject.transform.localEulerAngles;
-                Vector3 angle = Vector3.zero; 
+                Vector3 angle = Vector3.zero;
                 angle.z = 90 - followRotation.y;
                 objectToFollow.Item2.transform.localEulerAngles = angle;
             }
